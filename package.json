@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && broccoli build dist",
+    "serve": "broccoli serve || 1",
     "debug-build":
       "npm run clean && node --nolazy --inspect-brk=5858 $(which broccoli) build dist"
   },
