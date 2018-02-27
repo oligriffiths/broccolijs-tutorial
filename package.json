@@ -7,14 +7,15 @@
     "clean": "rm -rf dist",
     "build": "npm run clean && broccoli build dist",
     "serve": "broccoli serve || 1",
-    "debug-build":
-      "npm run clean && node --nolazy --inspect-brk=5858 $NODE_DEBUG_OPTION $(which broccoli) build dist"
+    "debug-build": "npm run clean && node --nolazy --inspect-brk=5858 $NODE_DEBUG_OPTION $(which broccoli) build dist"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/oligriffiths/broccolijs-tutorial.git"
   },
-  "keywords": ["broccoli"],
+  "keywords": [
+    "broccoli"
+  ],
   "author": "Oli Griffiths",
   "license": "MIT",
   "bugs": {
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/oligriffiths/broccolijs-tutorial#readme",
   "devDependencies": {
-    "broccoli": "^1.1.4"
+    "broccoli": "^1.1.4",
+    "broccoli-funnel": "^2.0.1"
   }
 }
