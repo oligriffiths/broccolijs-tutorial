@@ -394,3 +394,5 @@ emit it into the `/assets` directory. The last parameter is an options hash that
 Now `build & serve` and you should see the newly compiled `scss` file has generated a `css` file with the
 addition of the green border on the `html` element. Pretty neat. You can now use this `app/styles/app.scss`
 file as your entrypoint for scss/sass compilation.
+
+Tag: [04-sass-preprocessing](https://github.com/oligriffiths/broccolijs-tutorial/tree/04-sass-preprocessing)
