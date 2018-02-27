@@ -19,16 +19,13 @@ Oh, yeah, and I want all that to be fast.
 Historically, we had grunt, and decided we didn't like configuration files.
 Then we had gulp, because we wanted to write code to compile our code, then it got slow.
 Then we had webpack that does bundling, minifaction, source maps, but, it's kinda hard to configure.
-So Broccoli.js provides a simple Javascript API to do simple and complex file transformations.
+So Broccoli.js provides a simple Javascript API to do simple and complex file transformations, and do it fast.
 
 ## Follow along
 
-here's a talk I gave at EmberNYC meetup in Jan 2017 that covers most of this article.
+Here's a talk I gave at EmberNYC meetup in Jan 2017 that covers most of this article.
 
-<div style="padding-bottom: 56%; position: relative">
-<iframe style="position: absolute; width: 100%; height: 100%;"
-src="https://www.youtube.com/embed/JTzvYJBxwyI?start=141&end=1377" frameborder="0" allowfullscreen></iframe>
-</div>
+[![Watch EmberNYC video](https://img.youtube.com/vi/JTzvYJBxwyI/0.jpg)](https://www.youtube.com/embed/JTzvYJBxwyI?start=141&end=1377)
 
 ## Enter Broccoli.js.
 
@@ -59,9 +56,9 @@ Broccoli handles creating the node graph, that is, connecting the output paths o
 
 Nodes are always one of two types, `source` nodes and `transform` nodes.
 
-`source` nodes represent a single input directory, and are implicitly created when you use a `string` as an input to a plugin. Typically source nodes are "watched" directories, and chages to any files within them will trigger a rebuild of their node "tree".
+`source` nodes represent a single input directory, and are implicitly created when you use a `string` as an input to a plugin. Typically source nodes are "watched" directories, and chages to any files within them will trigger a rebuild of their node "tree". You can also create unwatched directories for things like vendor files that don't change often.
 
-`transform` nodes represent one or more input nodes, and are typically the output of plugins.
+`transform` nodes represent one or more input nodes, and are typically created by the output of plugins. Transform nodes delegate to a callback object (a plugin) during build time.
 
 ### How do plugins work?
 
@@ -83,28 +80,29 @@ is called when broccoli performs a (re)build.
 ### Building
 
 Broccoli build pipelines are defined using a `Brocfile.js` file in the root of the project. This `js` file
-defines the `source` nodes, passes them through various plugins creating `transformation` nodes, and finally
+defines the `source` nodes, passes them through various plugins creating `transform` nodes, and finally
 returns a single node that represents the final output of the build. Broccoli will then handle wiring up
-all of the nodes inputs and outputs into a graph, creating temporary directories as it goes, run the build
-and invoke the `build()` method on each plugin, and finally copy the files from the final node into the
-destination build directory.
-
-Additionally, when files are changed, Broccoli only needs to rebuild certain trees and not the entire
-application, this combined with cacheable plugins makes rebuilds _crazy_ fast.
+all of the nodes inputs and outputs into a graph (from the end node up to the start nodes), creating temporary
+directories as it goes, run the build and invoke the `build()` method on each plugin, and finally copy the
+files from the final node into the destination build directory.
 
 Confused? Here's an example:
 
 ```js
 const mergeTrees = require("broccoli-merge-trees"); // broccoli merge-trees plugin
-module.exports = mergeTrees("dir1", "dir2");
+module.exports = mergeTrees(["dir1", "dir2"]);
 ```
 
 This is a very simple `Brocfile.js` that merely merges the contents of `dir1` and `dir2` into the output
 directory. The node graph would be represented as follows:
 
 ```
-/dir1 => source directory 1
-/dir2 => source directory 2
+source node
+            =====> transform node
+source node
+------------------------
+/dir1 => source node 1
+/dir2 => source node 2
 mergeTrees(
     'dir1', => source node, implicitly created when using a string as an input
     'dir2' => source node, implicitly created when using a string as an input
@@ -112,8 +110,9 @@ mergeTrees(
 module.exports = transformation node with input nodes dir1 and dir2
 ```
 
-Thus `module.exports` contains a node that references the two input nodes, and an output node that will
-contain the contents of `dir1` and `dir2` when the `build` command is run.
+Thus `module.exports` contains a node that references the two input nodes, and an output path that will
+contain the contents of `dir1` and `dir2` when the `build` command is run. The two input nodes reference
+two source directories, `dir1` and `dir2`.
 
 It sounds like a lot, but it's actually quite simple, so let's get started with a simple Broccoli app.
 
