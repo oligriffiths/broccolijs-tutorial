@@ -127,7 +127,8 @@ To run the server, do:
 
 `broccoli serve`
 
-This should start a local HTTP server on `http://localhost:4200`
+This will start a local HTTP server on `http://localhost:4200`, note: this won't work right now, we must
+setup Broccoli first.
 
 ## 01-Setup:
 
@@ -141,18 +142,23 @@ Then, create a new directory for this tutorial, and:
 
 In your `package.json` add the following to the `scripts` node (add this if it's not present):
 
-```
-"clean": "rm -rf dist",
-"build": "npm run clean && broccoli build dist",
-"serve": "broccoli serve || 1",
+```json
+{
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && broccoli build dist",
+    "serve": "broccoli serve || 1"
+  }
+}
 ```
 
-You can now use `npm run build` and `npm run serve` for convenience.
+You can now use `npm run build` and `npm run serve` for convenience. I will refer to these as `build` and
+`serve` going forwards.
 
 Now create a `Brocfile.js` in the root of your project, with the contents: `module.exports = "app";`.
 
 Next, create a directory `app` within the project, and add a `index.html` file with the contents
-`hello world`.
+`Hello World`.
 
 That's it, you're done. Checkout tag: [01-setup](https://github.com/oligriffiths/broccolijs-tutorial/tree/01-setup) if you got lost.
 
@@ -188,3 +194,50 @@ Now try running `npm run serve` or `broccoli serve` and open `http://localhost:4
 hello world application.
 
 Great, your first Broccoli build is complete, pat yourself on the back 👏.
+
+## 02-Filtering files
+
+Copying the whole input directory to the output directory isn't what one would really call a build pipeline.
+Sure, it does the job, but you might as well just ship your `app` directory. Lets have a go at filtering
+the files we're going to build, kind of like a `glob()` file search. For this, we use
+[broccoli-filter](https://github.com/broccolijs/broccoli-filter).
+
+```
+yarn add --dev broccoli-funnel
+```
+
+Now update your `Brocfile.js`
+
+```js
+// Brocfile.js
+const funnel = require("broccoli-funnel");
+
+const appRoot = "app";
+
+// Copy HTML file from app root to destination
+const html = funnel(appRoot, {
+  files: ["index.html"],
+  destDir: "/"
+});
+
+module.exports = html;
+```
+
+What we're doing here should be fairly self explanatory, although the "funnel" bit seems a bit misleading.
+
+Per the docs:
+
+    The funnel plugin takes an input node, and returns a new node with only a subset of the files from the
+    input node. The files can be moved to different paths. You can use regular expressions to select which
+    files to include or exclude.
+
+Basically, this is taking an input node, which can be a string representing a directory or another node,
+selecting only the index.html file (this can be a regex match also) and moving it to the destDir, the root of
+the output path.
+
+Finally, we return the node as the module export, and Broccoli handles all the rest.
+
+Running `npm run build` won't really produce any different output, as we only have one file right now,
+so try adding another file to `/app` and rebuilding, you will not see that file in the `dist` directory.
+
+Tag: [02-filtering-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/02-filtering-files)
