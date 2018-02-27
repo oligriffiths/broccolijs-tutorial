@@ -25,6 +25,8 @@ So Broccoli.js provides a simple Javascript API to do simple and complex file tr
 
 Here's a talk I gave at EmberNYC meetup in Jan 2017 that covers most of this article.
 
+[Watch EmberNYC video](https://www.youtube.com/embed/JTzvYJBxwyI?start=141&end=1377)
+
 [![Watch EmberNYC video](https://img.youtube.com/vi/JTzvYJBxwyI/0.jpg)](https://www.youtube.com/embed/JTzvYJBxwyI?start=141&end=1377)
 
 ## Enter Broccoli.js.
