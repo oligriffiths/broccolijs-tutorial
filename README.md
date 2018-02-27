@@ -127,13 +127,13 @@ To run the server, do:
 
 This should start a local HTTP server on `http://localhost:4200`
 
-## Setup:
+## 01-Setup:
 
 First things first, install broccoli-cli:
 
 `npm install -g broccoli-cli`
 
-Then:
+Then, create a new directory for this tutorial, and:
 
 `yarn install --dev broccoli` or `npm install --save-dev broccoli`
 
@@ -147,6 +147,13 @@ In your `package.json` add the following to the `scripts` node (add this if it's
 
 You can now use `npm run build` and `npm run serve` for convenience.
 
+Now create a `Brocfile.js` in the root of your project, with the contents: `module.exports = "app";`.
+
+Next, create a directory `app` within the project, and add a `index.html` file with the contents
+`hello world`.
+
+That's it, you're done. Checkout tag: [01-setup](https://github.com/oligriffiths/broccolijs-tutorial/tree/01-setup) if you got lost.
+
 The initial setup of this tutorial merely copies files from the input `app` directory by exporting the
 string `app`. The `Brocfile.js` contains the Broccoli configuration for the build. The `module.exports`
 line must export a Broccoli tree. "But it's a string" you say, yes, Broccoli will automatically convert
@@ -154,7 +161,7 @@ a string into a `source node`, and on build, validate that the directory exists.
 Brofile merely exports a single tree, containing the contents of the `app` directory, this will then be
 copied to the destination directory (`dist` in our case).
 
-To run a build, run `npm run build` (if using this project) or `rm -rf dist && broccoli build dist`.
+To run a build, run `npm run build` (if you added the script) or `rm -rf dist && broccoli build dist`.
 You should see something like:
 
 ```
