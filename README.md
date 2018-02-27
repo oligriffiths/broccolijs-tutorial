@@ -123,7 +123,7 @@ in development, and perform rebuilds when source directories (nodes) change.
 
 To run the server, do:
 
-`npm run serve` or `broccoli serve`
+`broccoli serve`
 
 This should start a local HTTP server on `http://localhost:4200`
 
@@ -136,6 +136,16 @@ First things first, install broccoli-cli:
 Then:
 
 `yarn install --dev broccoli` or `npm install --save-dev broccoli`
+
+In your `package.json` add the following to the `scripts` node (add this if it's not present):
+
+```
+"clean": "rm -rf dist",
+"build": "npm run clean && broccoli build dist",
+"serve": "broccoli serve || 1",
+```
+
+You can now use `npm run build` and `npm run serve` for convenience.
 
 The initial setup of this tutorial merely copies files from the input `app` directory by exporting the
 string `app`. The `Brocfile.js` contains the Broccoli configuration for the build. The `module.exports`
