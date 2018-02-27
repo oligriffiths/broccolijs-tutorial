@@ -241,3 +241,96 @@ Running `npm run build` won't really produce any different output, as we only ha
 so try adding another file to `/app` and rebuilding, you will not see that file in the `dist` directory.
 
 Tag: [02-filtering-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/02-filtering-files)
+
+## 03-merge-trees
+
+The first examples are fairly contrived and not that useful. We'll want to be able to work with multiple trees,
+and ultimately have them written to our target directory.
+
+Introducing, [broccoli-merge-trees](https://github.com/broccolijs/broccoli-merge-trees)
+
+```
+yarn add --dev broccoli-merge-trees
+```
+
+Now let's add a JS and a CSS file that'll be the root of our web app and copy that into an `assets` folder.
+
+```
+mkdir app/styles
+```
+
+In `app/styles/app.css` put:
+
+```css
+html {
+  background: palegreen;
+}
+```
+
+In `app/app.js` put:
+
+```js
+alert("Eat your greens");
+```
+
+In `app/index.html` put:
+
+```html
+<!doctype html><html>
+<head>
+    <title>Broccoli.js Tutorial</title>
+    <link rel="stylesheet" href="/assets/app.css" />
+</head>
+<body>
+Hello World
+<script src="/assets/app.js"></script>
+</body>
+</html>
+```
+
+```js
+// Brocfile.js
+const funnel = require("broccoli-funnel");
+const merge = require("broccoli-merge-trees");
+
+const appRoot = "app";
+
+// Copy HTML file from app root to destination
+const html = funnel(appRoot, {
+  files: ["index.html"],
+  destDir: "/"
+});
+
+// Copy JS file into assets
+const js = funnel(appRoot, {
+  files: ["app.js"],
+  destDir: "/assets"
+});
+
+// Copy CSS file into assets
+const css = funnel(appRoot, {
+  srcDir: "styles",
+  files: ["app.css"],
+  destDir: "/assets"
+});
+
+module.exports = merge([html, js, css]);
+```
+
+Again, pretty simple. We've added 2 more filters, a `js` tree and a `css`, that's taken an input node
+`appRoot`, filtered out all files except the `app.js` and `app.css` and will copy the files to the `destDir`
+of `/assets` within the target directory. Then, we take all trees, and merge them together, so all files end
+up in the target directory.
+
+Now `build & serve`, you should get an alert message saying `Eat your greens` with a nice pale green
+background.
+
+The target `dist` directory should contain:
+
+```
+assets/app.js
+assets/app.css
+index.html
+```
+
+Tag: [03-filtering-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/03-merge-trees)
