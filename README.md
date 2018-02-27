@@ -242,7 +242,7 @@ so try adding another file to `/app` and rebuilding, you will not see that file 
 
 Tag: [02-filtering-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/02-filtering-files)
 
-## 03-merge-trees
+## 03-Merge Trees
 
 The first examples are fairly contrived and not that useful. We'll want to be able to work with multiple trees,
 and ultimately have them written to our target directory.
@@ -334,3 +334,63 @@ index.html
 ```
 
 Tag: [03-filtering-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/03-merge-trees)
+
+## 04-SCSS Preprocessing
+
+So our app is coming along, we have an index page that loads a javascript file and a lovely green background.
+But css is so old school, we want to be able to write some fancy scss and have a preprocessor convert that to
+css for us.
+
+For the purposes of this tutorial, I am going to use SCSS, however there are sass, less and other preprocessors
+available to use in a Broccoli build. Check NPM.
+
+For this, we will use the excellent [broccoli-sass-source-maps](https://github.com/aexmachina/broccoli-sass-source-maps)
+plugin.
+
+```
+yarn add --dev broccoli-sass-source-maps
+mv app/styles/app.css app/styles/app.scss
+```
+
+In `app/styles/app.scss` put:
+
+```scss
+$body-color: palegreen;
+html {
+  background: $body-color;
+  border: 5px solid green;
+}
+```
+
+```js
+// Brocfile.js
+const funnel = require("broccoli-funnel");
+const merge = require("broccoli-merge-trees");
+const compileSass = require("broccoli-sass-source-maps");
+
+const appRoot = "app";
+
+// Copy HTML file from app root to destination
+const html = funnel(appRoot, {
+  files: ["index.html"],
+  destDir: "/"
+});
+
+// Copy JS file into assets
+const js = funnel(appRoot, {
+  files: ["app.js"],
+  destDir: "/assets"
+});
+
+// Copy SCSS file into assets
+const css = compileSass([appRoot], "styles/app.scss", "assets/app.css", {});
+
+module.exports = merge([html, js, css]);
+```
+
+As you can see, we're now using the `compileSass` plugin to transform our `scss` file into a `css` file, and
+emit it into the `/assets` directory. The last parameter is an options hash that we will cover in a moment.
+
+Now `build & serve` and you should see the newly compiled `scss` file has generated a `css` file with the
+addition of the green border on the `html` element. Pretty neat. You can now use this `app/styles/app.scss`
+file as your entrypoint for scss/sass compilation.

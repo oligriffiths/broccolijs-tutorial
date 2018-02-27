@@ -1,5 +1,6 @@
 const funnel = require("broccoli-funnel");
 const merge = require("broccoli-merge-trees");
+const compileSass = require("broccoli-sass-source-maps");
 
 const appRoot = "app";
 
@@ -15,11 +16,7 @@ const js = funnel(appRoot, {
   destDir: "/assets"
 });
 
-// Copy CSS file into assets
-const css = funnel(appRoot, {
-  srcDir: "styles",
-  files: ["app.css"],
-  destDir: "/assets"
-});
+// Copy SCSS file into assets
+const css = compileSass([appRoot], "styles/app.scss", "assets/app.css", {});
 
 module.exports = merge([html, js, css]);
