@@ -91,8 +91,8 @@ files from the final node into the destination build directory.
 Confused? Here's an example:
 
 ```js
-const mergeTrees = require("broccoli-merge-trees"); // broccoli merge-trees plugin
-module.exports = mergeTrees(["dir1", "dir2"]);
+const MergeTrees = require("broccoli-merge-trees"); // broccoli merge-trees plugin
+module.exports = new MergeTrees(["dir1", "dir2"]);
 ```
 
 This is a very simple `Brocfile.js` that merely merges the contents of `dir1` and `dir2` into the output
@@ -210,12 +210,12 @@ Now update your `Brocfile.js`
 
 ```js
 // Brocfile.js
-const funnel = require("broccoli-funnel");
+const Funnel = require("broccoli-funnel");
 
 const appRoot = "app";
 
 // Copy HTML file from app root to destination
-const html = funnel(appRoot, {
+const html = new Funnel((appRoot, {
   files: ["index.html"],
   destDir: "/"
 });
@@ -290,31 +290,31 @@ Hello World
 
 ```js
 // Brocfile.js
-const funnel = require("broccoli-funnel");
-const merge = require("broccoli-merge-trees");
+const Funnel = require("broccoli-funnel");
+const Merge = require("broccoli-merge-trees");
 
 const appRoot = "app";
 
 // Copy HTML file from app root to destination
-const html = funnel(appRoot, {
+const html = new Funnel((appRoot, {
   files: ["index.html"],
   destDir: "/"
 });
 
 // Copy JS file into assets
-const js = funnel(appRoot, {
+const js = new Funnel((appRoot, {
   files: ["app.js"],
   destDir: "/assets"
 });
 
 // Copy CSS file into assets
-const css = funnel(appRoot, {
+const css = new Funnel((appRoot, {
   srcDir: "styles",
   files: ["app.css"],
   destDir: "/assets"
 });
 
-module.exports = merge([html, js, css]);
+module.exports = new Merge([html, js, css]);
 ```
 
 Again, pretty simple. We've added 2 more filters, a `js` tree and a `css`, that's taken an input node
@@ -364,28 +364,28 @@ html {
 
 ```js
 // Brocfile.js
-const funnel = require("broccoli-funnel");
-const merge = require("broccoli-merge-trees");
-const compileSass = require("broccoli-sass-source-maps");
+const Funnel = require("broccoli-funnel");
+const Merge = require("broccoli-merge-trees");
+const CompileSass = require("broccoli-sass-source-maps");
 
 const appRoot = "app";
 
 // Copy HTML file from app root to destination
-const html = funnel(appRoot, {
+const html = new Funnel(appRoot, {
   files: ["index.html"],
   destDir: "/"
 });
 
 // Copy JS file into assets
-const js = funnel(appRoot, {
+const js = new Funnel(appRoot, {
   files: ["app.js"],
   destDir: "/assets"
 });
 
 // Copy SCSS file into assets
-const css = compileSass([appRoot], "styles/app.scss", "assets/app.css", {});
+const css = new CompileSass([appRoot], "styles/app.scss", "assets/app.css", {});
 
-module.exports = merge([html, js, css]);
+module.exports = new Merge([html, js, css]);
 ```
 
 As you can see, we're now using the `compileSass` plugin to transform our `scss` file into a `css` file, and
@@ -404,12 +404,12 @@ Try inspecting the html tag right now, you should see the `html` style is define
 it's actually defined in the `app.scss` on line 2. This is a fairly trivial example but gets way complicated
 when you have imported files and lots of scss processing being done.
 
-To enable source maps, add the following to the options hash that's the last parameter to `compileSass()`.
+To enable source maps, add the following to the options hash that's the last parameter to `new CompileSass()`.
 
 ```js
 // Brocfile.js
 // ...
-const css = compileSass(
+const css = new CompileSass(
 [appRoot],
 'styles/app.scss',
 'assets/app.css',
@@ -468,13 +468,13 @@ const Babel = require('broccoli-babel-transpiler');
 const appRoot = 'app';
 
 // Copy HTML file from app root to destination
-const html = new Funnel(appRoot, {
+const html = new Funnel((appRoot, {
   files : ['index.html'],
   destDir : '/'
 });
 
 // Copy JS file into assets
-let js = new Funnel(appRoot, {
+let js = new Funnel((appRoot, {
   files : ['app.js'],
   destDir : '/assets'
 });
