@@ -29,6 +29,8 @@
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
     "broccoli-rollup": "^2.0.0",
-    "broccoli-sass-source-maps": "^2.2.0"
+    "broccoli-sass-source-maps": "^2.2.0",
+    "rollup-plugin-commonjs": "^8.4.1",
+    "rollup-plugin-node-resolve": "^3.0.3"
   }
 }

@@ -746,3 +746,60 @@ This is part of the magic of Rollup, it knows, through static analysis, what cod
 and dynamically removes it. Cool huh?
 
 Tag: [06-es6-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/06-es6-modules)
+
+### 07-Node & Commonjs modules
+
+Rollup only knows about your code by default, it has no idea about `node_modules` code or how to resolve it. As such
+we must configure it to know how to resolve node modules you might import.
+
+```
+yarn add --dev rollup-plugin-node-resolve rollup-plugin-commonjs@^8.4.1
+```
+
+Now update your `Brocfile.js` and replace the `new Rollup` node with:
+```js
+let js = new Rollup(appRoot, {
+  inputFiles: ['**/*.js'],
+  rollup: {
+    input: 'app.js',
+    output: {
+      file: 'assets/app.js',
+      format: 'es',
+      sourcemap: true,
+    },
+    plugins: [
+      nodeResolve({
+        jsnext: true,
+        browser: true,
+      }),
+      commonjs({
+        include: 'node_modules/**',
+      }),
+    ],
+  }
+});
+```
+
+And update `app/app.js` with:
+
+```js
+'use strict';
+
+import foo from './foo';
+import bar from './foo';
+import BlankObject from 'blank-object';
+import diff from 'arr-diff';
+
+const blank = new BlankObject();
+
+console.log(foo, blank, diff([1,2,3], [3,4,5]));
+```
+
+This will now allow Rollup to import the native ES6 module `blank-object` and the Commonjs module `arr-diff`. Go ahead
+and run this with `npm run serve` and check the console, you should get:
+
+```
+foo BlankObject {} (2) [1, 2]
+```
+
+Tag: [07-node-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/07-node-modules)
