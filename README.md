@@ -396,3 +396,35 @@ addition of the green border on the `html` element. Pretty neat. You can now use
 file as your entrypoint for scss/sass compilation.
 
 Tag: [04-sass-preprocessing](https://github.com/oligriffiths/broccolijs-tutorial/tree/04-sass-preprocessing)
+
+### Source maps
+      
+As the name of the plugin suggests, it supports source maps. Source maps are a great way during development
+to be able see where styles have come from in the source `scss` document, rather than the compiled `css` document.
+
+Try inspecting the html tag right now, you should see the `html` style is defined in `app.css` on line 1, however
+it's actually defined in the `app.scss` on line 2. This is a fairly trivial example but gets way complicated
+when you have imported files and lots of scss processing being done.
+
+To enable source maps, add the following to the options hash that's the last parameter to `compileSass()`.
+
+```js
+// Brocfile.js
+// ...
+const css = compileSass(
+[appRoot],
+'styles/app.scss',
+'assets/app.css',
+{
+  sourceMap: true,
+  sourceMapEmbed: true,
+  sourceMapContents: true,
+}
+);
+```
+
+Now `build & serve` and you should see that when inspecting the html tag, the line has changed to line 2 and the
+file is now `app.scss`. If you click the file name in the inspector, it should take you to the source `app.scss` 
+file, showing the original scss, complete with variables.
+
+See the Github repo for more details on further configuration options.
