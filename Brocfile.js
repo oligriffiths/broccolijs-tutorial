@@ -2,6 +2,7 @@ const Funnel = require('broccoli-funnel');
 const Merge = require('broccoli-merge-trees');
 const CompileSass = require('broccoli-sass-source-maps');
 const Babel = require('broccoli-babel-transpiler');
+const Rollup = require('broccoli-rollup');
 
 const appRoot = 'app';
 
@@ -12,9 +13,16 @@ const html = new Funnel(appRoot, {
 });
 
 // Copy JS file into assets
-let js = new Funnel(appRoot, {
-  files : ['app.js'],
-  destDir : '/assets'
+let js = new Rollup(appRoot, {
+  inputFiles: ['**/*.js'],
+  rollup: {
+    input: 'app.js',
+    output: {
+      file: 'assets/app.js',
+      format: 'es',
+      sourcemap: 'inline',
+    }
+  }
 });
 
 // Transpile JS files to ES5

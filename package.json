@@ -28,6 +28,7 @@
     "broccoli-babel-transpiler": "^6.1.4",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
+    "broccoli-rollup": "^2.0.0",
     "broccoli-sass-source-maps": "^2.2.0"
   }
 }
