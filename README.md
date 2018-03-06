@@ -395,8 +395,6 @@ Now `build & serve` and you should see the newly compiled `scss` file has genera
 addition of the green border on the `html` element. Pretty neat. You can now use this `app/styles/app.scss`
 file as your entrypoint for scss/sass compilation.
 
-Tag: [04-sass-preprocessing](https://github.com/oligriffiths/broccolijs-tutorial/tree/04-sass-preprocessing)
-
 ### Source maps
       
 As the name of the plugin suggests, it supports source maps. Source maps are a great way during development
@@ -428,3 +426,5 @@ file is now `app.scss`. If you click the file name in the inspector, it should t
 file, showing the original scss, complete with variables.
 
 See the Github repo for more details on further configuration options.
+
+Tag: [04-sass-preprocessing](https://github.com/oligriffiths/broccolijs-tutorial/tree/04-sass-preprocessing)
