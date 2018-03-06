@@ -11,7 +11,10 @@
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "debug-build"],
-      "port": 5858
+      "port": 5858,
+      "env": {
+        "NODE_DEBUG_OPTION": "--nolazy --inspect-brk=5858"
+      }
     }
   ]
 }
