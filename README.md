@@ -765,7 +765,7 @@ let js = new Rollup(appRoot, {
     output: {
       file: 'assets/app.js',
       format: 'es',
-      sourcemap: true,
+      sourcemap: 'inline;',
     },
     plugins: [
       nodeResolve({
