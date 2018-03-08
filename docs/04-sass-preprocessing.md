@@ -99,3 +99,5 @@ file is now `app.scss`. If you click the file name in the inspector, it should t
 file, showing the original scss, complete with variables.
 
 See the Github repo for more details on further configuration options.
+
+Next: [05-es6-transpilation](/blob/master/docs/05-es6-transpilation.md)
