@@ -23,5 +23,7 @@
     "url": "https://github.com/oligriffiths/broccolijs-tutorial/issues"
   },
   "homepage": "https://github.com/oligriffiths/broccolijs-tutorial#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "broccoli": "^1.1.4"
+  }
 }
