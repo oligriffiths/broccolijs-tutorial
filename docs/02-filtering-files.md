@@ -45,4 +45,4 @@ Finally, we return the node as the module export, and Broccoli handles all the r
 Running `npm run build` won't really produce any different output, as we only have one file right now, so let's try
 adding some more files in the next step.
 
-Next: [03-merge-trees](/blob/parts/03-merge-trees/docs/03-merge-trees.md)
+Next: [03-merge-trees](/blob/master/docs/03-merge-trees.md)
