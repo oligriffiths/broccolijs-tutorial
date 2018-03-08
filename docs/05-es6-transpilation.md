@@ -130,3 +130,5 @@ If you run this in the browser, you'll see the message and the correct `this` is
 
 Now try adding a `debugger;` statement into the function and notice that the console stops at the breakpoint.
 The presented source code should be the original ES6 version, *not* the transpiled ES5 version.
+
+Next: [06-es6-modules](/blob/master/docs/06-es6-modules.md)
