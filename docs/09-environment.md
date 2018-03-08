@@ -113,3 +113,5 @@ In order to pass in a different environment, simply add `BROCCOLI_ENV=production
 ```
 
 Now, running `npm run build-prod` will build in "production" mode.
+
+Next: [10-minify](/blob/master/docs/10-minify.md)
