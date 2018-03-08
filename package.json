@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/oligriffiths/broccolijs-tutorial#readme",
   "devDependencies": {
-    "broccoli": "^1.1.4"
+    "broccoli": "^1.1.4",
+    "broccoli-funnel": "^2.0.1"
   }
 }
