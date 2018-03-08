@@ -32,6 +32,8 @@
     "broccoli-merge-trees": "^3.0.0",
     "broccoli-rollup": "^2.0.0",
     "broccoli-sass-source-maps": "^2.2.0",
-    "rollup-plugin-babel": "^3.0.3"
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.4.1",
+    "rollup-plugin-node-resolve": "^3.2.0"
   }
 }
