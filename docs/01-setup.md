@@ -1,6 +1,6 @@
 ## 01-Setup:
 
-Branch: [examples/01-setup](/tree/examples/01-setup)
+Branch: [examples/01-setup](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/01-setup)
 
 First things first, we're going to use [yarn](https://yarnpkg.com) instead of `npm` to ensure our dependencies are in
 lock step.
