@@ -93,7 +93,7 @@ Built - 0 ms @ Sat Mar 10 2018 11:47:16 GMT-0800 (PST)
 
 You will see the URL `http://localhost:4200`, if you open this in the browser, you should see:
 
-![browser](docs/assets/01-setup.png)
+![browser](/docs/assets/01-setup.png)
 
 Great, your first Broccoli build is complete, pat yourself on the back 👏.
 
