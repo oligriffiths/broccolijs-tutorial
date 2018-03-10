@@ -69,4 +69,4 @@ output.
 
 Great, your first Broccoli build is complete, pat yourself on the back 👏.
 
-Next: [02-filtering-files](/blob/master/docs/02-filtering-files.md)
+Next: [02-filtering-files](/docs/02-filtering-files.md)
