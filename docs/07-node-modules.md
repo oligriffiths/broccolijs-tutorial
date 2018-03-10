@@ -1,7 +1,5 @@
 ## 07-Node & Commonjs modules
 
-Branch: [examples/07-node-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/07-node-modules)
-
 Rollup only knows about your code by default, it has no idea about `node_modules` code or how to resolve it. As such
 we must configure it to know how to resolve node modules you might import.
 
@@ -96,5 +94,7 @@ and run this with `npm run serve` and check the console, you should get:
 ```sh
 foo BlankObject {} (2) [1, 2]
 ```
+
+Completed Branch: [examples/07-node-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/07-node-modules)
 
 Next: [07-node-modules](/docs/08-live-reload.md)

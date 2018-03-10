@@ -1,7 +1,5 @@
 ## 01-Setup:
 
-Branch: [examples/01-setup](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/01-setup)
-
 First things first, we're going to use [yarn](https://yarnpkg.com) instead of `npm` to ensure our dependencies are in
 lock step.
 
@@ -96,5 +94,7 @@ You will see the URL `http://localhost:4200`, if you open this in the browser, y
 ![browser](/docs/assets/01-setup.png)
 
 Great, your first Broccoli build is complete, pat yourself on the back 👏.
+
+Completed Branch: [examples/01-setup](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/01-setup)
 
 Next: [02-filtering-files](/docs/02-filtering-files.md)

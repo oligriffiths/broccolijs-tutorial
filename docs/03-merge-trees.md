@@ -1,7 +1,5 @@
 ## 03-Merge Trees
 
-Branch: [examples/03-merge-trees](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/03-merge-trees)
-
 The first examples are fairly contrived and not that useful. We'll want to be able to work with multiple trees,
 and ultimately have them written to our target directory.
 
@@ -104,5 +102,7 @@ assets/app.css
 images/broccoli-logo.png
 index.html
 ```
+
+Completed Branch: [examples/03-merge-trees](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/03-merge-trees)
 
 Next: [04-sass-preprocessing](/docs/04-sass-preprocessing.md)

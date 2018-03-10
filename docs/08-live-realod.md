@@ -1,7 +1,5 @@
 ## 08-Live Reload
 
-Branch: [examples/08-live-reload](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/08-live-reload)
-
 Well, obviously in dev we'd quite like to not have to hit refresh all the time, because developers are,
 well, we're lazy. So we can use a live reload server to do the job for us.
 
@@ -89,5 +87,7 @@ What we're doing here is assigning the final output of `Merge` to a mutable vari
 Now `build & serve`, try changing a `scss` file, notice how the css refreshes in place, no browser refresh. Change a
 `.js` or `.html` file and the page will refresh. This doesn't support fancy hot reloading like React and Webpack does,
 but that's a slightly different ballgame, and is very architecture dependent.
+
+Completed Branch: [examples/08-live-reload](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/08-live-reload)
 
 Next: [09-environment](/docs/09-environment.md)

@@ -1,8 +1,5 @@
 ## 10-Minify
 
-Branch: [examples/10-minify](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/10-minify)
-
-
 Minifying or Uglifying as it's also sometimes called, is the process of turning normal Javascript or CSS,
 into a compressed version, with much shorter variable and function names (for JS), and unnecessary whitespace removed
 to save on bytes shipped to the browser. Fewer bytes means less time transferring files and less time for the browser
@@ -115,3 +112,5 @@ So what we're doing here is 2 things.
 2. Changing the `css` variable to `let` so we can overwrite it for production, passing it into `CleanCss()`
 
 That's it, now try building your prod application: `npm run build-prod`
+
+Completed Branch: [examples/10-minify](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/10-minify)

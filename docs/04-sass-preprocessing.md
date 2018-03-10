@@ -1,7 +1,5 @@
 ## 04-SCSS Preprocessing
 
-Branch: [examples/04-sass-preprocessing](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/04-sass-preprocessing)
-
 So our app is coming along, we have an index page that loads a javascript file and a lovely green background.
 But css is so old school, we want to be able to write some fancy scss and have a preprocessor convert that to
 css for us.
@@ -99,5 +97,7 @@ file is now `app.scss`. If you click the file name in the inspector, it should t
 file, showing the original scss, complete with variables.
 
 See the Github repo for more details on further configuration options.
+
+Completed Branch: [examples/04-sass-preprocessing](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/04-sass-preprocessing)
 
 Next: [05-es6-transpilation](/docs/05-es6-transpilation.md)

@@ -1,8 +1,5 @@
 ## 09-Environment
 
-Branch: [examples/09-environment](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/09-environment)
-
-
 Environment configuration allows us to include or not include certain things in the build given certain
 configuration options. For example, we probably want to not include live reload for production builds,
 for this we need to have different environments. When building, we can provide an environment flag option.
@@ -113,5 +110,7 @@ In order to pass in a different environment, simply add `BROCCOLI_ENV=production
 ```
 
 Now, running `npm run build-prod` will build in "production" mode.
+
+Completed Branch: [examples/09-environment](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/09-environment)
 
 Next: [10-minify](/docs/10-minify.md)

@@ -1,7 +1,5 @@
 ## 05-ES6 Transpilation
 
-Branch: [examples/05-es6-transpilation](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/05-es6-transpilation)
-
 So, our javascript is just your run-of-the-mill, runs in the browser, ES5, boring old javascript. But we're making
 a shiny new, state-of-the-art javascript application, so we should really be pushing the latest and greatest ES6
 syntax. Step up [Babel](https://babeljs.io).
@@ -130,5 +128,7 @@ If you run this in the browser, you'll see the message and the correct `this` is
 
 Now try adding a `debugger;` statement into the function and notice that the console stops at the breakpoint.
 The presented source code should be the original ES6 version, *not* the transpiled ES5 version.
+
+Completed Branch: [examples/05-es6-transpilation](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/05-es6-transpilation)
 
 Next: [06-es6-modules](/docs/06-es6-modules.md)

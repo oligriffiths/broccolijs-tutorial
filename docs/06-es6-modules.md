@@ -1,7 +1,5 @@
 ## 06-ES6 module imports
 
-Branch: [examples/06-es6-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/06-es6-modules)
-
 ES6 allows you to import code from other Javascript files using the following syntax:
 
 ```js
@@ -197,5 +195,7 @@ Now open `dist/assets/app.js`, notice how the `bar` is nowhere to be seen? What 
 
 This is part of the magic of Rollup, it knows, through static analysis, what code is not being used
 and dynamically removes it. Cool huh?
+
+Completed Branch: [examples/06-es6-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/06-es6-modules)
 
 Next: [07-node-modules](/docs/07-node-modules.md)
