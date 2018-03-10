@@ -43,7 +43,7 @@ Next, create a directory `app` within the project, and add a `index.html` file w
 
 ```sh
 mkdir app
-echo 'Eat your greens' > app/index.html
+echo 'Eat your greens!' > app/index.html
 ```
 
 That's it, you're done.
