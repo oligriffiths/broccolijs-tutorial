@@ -75,8 +75,25 @@ $ cat dist/index.html
 Eat your greens!
 ```
 
-Now try running `npm run serve` or `broccoli serve` and open `http://localhost:4200`, you should see your the same
-output.
+Now try running `npm run serve` or `broccoli serve` and you should see:
+
+```sh
+npm run serve
+
+> emberconf-broccoli-workshop@1.0.0 serve emberconf-broccoli-workshop
+> broccoli serve || true
+
+Serving on http://localhost:4200
+
+
+
+
+Built - 0 ms @ Sat Mar 10 2018 11:47:16 GMT-0800 (PST)
+```
+
+You will see the URL `http://localhost:4200`, if you open this in the browser, you should see:
+
+![browser](docs/assets/01-setup.png)
 
 Great, your first Broccoli build is complete, pat yourself on the back 👏.
 
