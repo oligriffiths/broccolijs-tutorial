@@ -28,7 +28,7 @@ console.log(foo);
 
 Now `build & serve`, refresh the browser, and:
 
-```
+```sh
 app.js:5 Uncaught ReferenceError: require is not defined
     at app.js:5
 ```
@@ -55,7 +55,7 @@ efficiently bundle them up into a single file for use in browsers and Node.js
 
 So, first off, install rollup:
 
-```
+```sh
 yarn add --dev broccoli-rollup rollup-plugin-babel
 ```
 

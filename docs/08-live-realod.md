@@ -5,7 +5,7 @@ Branch: [examples/08-live-reload](https://github.com/oligriffiths/broccolijs-tut
 Well, obviously in dev we'd quite like to not have to hit refresh all the time, because developers are,
 well, we're lazy. So we can use a live reload server to do the job for us.
 
-```
+```sh
 yarn add --dev https://github.com/oligriffiths/broccoli-livereload.git#patch-1
 ```
 

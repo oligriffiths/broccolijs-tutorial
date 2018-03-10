@@ -41,7 +41,7 @@ module.exports = "app";
 
 Next, create a directory `app` within the project, and add a `index.html` file with the contents `Eat your greens!`.
 
-```bash
+```sh
 mkdir app
 echo 'Eat your greens' > app/index.html
 ```
@@ -57,7 +57,7 @@ the `app` directory, this will then be copied to the destination directory (`dis
 To run a build, run `npm run build` (if you added the script) or `rm -rf dist && broccoli build dist`.
 You should see something like:
 
-```
+```sh
 > broccoli-tutorial@0.0.0 build /Users/oli/Projects/broccoli-tutorial
 > npm run clean && broccoli build dist
 
@@ -70,7 +70,7 @@ Broccoli doesn't remove previous builds by default, so we must remove it before 
 
 The contents of `app` should now be in the `dist` directory. Try:
 
-```
+```sh
 $ cat dist/index.html
 Eat your greens!
 ```

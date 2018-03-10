@@ -7,7 +7,7 @@ Sure, it does the job, but you might as well just ship your `app` directory. Let
 going to build, kind of like a `glob()` file search. For this, we use
 [broccoli-filter](https://github.com/broccolijs/broccoli-filter).
 
-```
+```sh
 yarn add --dev broccoli-funnel
 ```
 

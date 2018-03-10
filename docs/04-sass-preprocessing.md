@@ -12,7 +12,7 @@ available to use in a Broccoli build. Check NPM.
 For this, we will use the excellent [broccoli-sass-source-maps](https://github.com/aexmachina/broccoli-sass-source-maps)
 plugin.
 
-```
+```sh
 yarn add --dev broccoli-sass-source-maps
 mv app/styles/app.css app/styles/app.scss
 ```

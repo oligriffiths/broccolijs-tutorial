@@ -8,7 +8,7 @@ into a compressed version, with much shorter variable and function names (for JS
 to save on bytes shipped to the browser. Fewer bytes means less time transferring files and less time for the browser
 to parse the file.
 
-```
+```sh
 yarn add --dev rollup-plugin-uglify broccoli-clean-css
 ```
 

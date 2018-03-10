@@ -7,19 +7,19 @@ and ultimately have them written to our target directory.
 
 Introducing, [broccoli-merge-trees](https://github.com/broccolijs/broccoli-merge-trees)
 
-```
+```sh
 yarn add --dev broccoli-merge-trees
 ```
 
 Now let's add a `public` directory so we can ship unprocessed assets like images:
 
-```bash
+```sh
 mkdir -p public/images
 ```
 
 Now let's add a JS and a CSS file that'll be the root of our web app and copy that into an `assets` folder.
 
-```
+```sh
 mkdir app/styles
 ```
 
@@ -98,7 +98,7 @@ Now `build & serve`, you should get an alert message saying `Eat your greens` wi
 
 The target `dist` directory should contain:
 
-```
+```sh
 assets/app.js
 assets/app.css
 images/broccoli-logo.png

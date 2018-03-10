@@ -5,7 +5,7 @@ Branch: [examples/07-node-modules](https://github.com/oligriffiths/broccolijs-tu
 Rollup only knows about your code by default, it has no idea about `node_modules` code or how to resolve it. As such
 we must configure it to know how to resolve node modules you might import.
 
-```
+```sh
 yarn add --dev rollup-plugin-node-resolve rollup-plugin-commonjs@^8.4.1
 ```
 
@@ -93,7 +93,7 @@ console.log(foo, blank, diff([1,2,3], [3,4,5]));
 This will now allow Rollup to import the native ES6 module `blank-object` and the Commonjs module `arr-diff`. Go ahead
 and run this with `npm run serve` and check the console, you should get:
 
-```
+```sh
 foo BlankObject {} (2) [1, 2]
 ```
 

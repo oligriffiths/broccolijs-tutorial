@@ -8,7 +8,7 @@ configuration options. For example, we probably want to not include live reload 
 for this we need to have different environments. When building, we can provide an environment flag option.
 So lets go ahead and configure things to support this.
 
-```
+```sh
 uarn add --dev broccoli-env
 ```
 
