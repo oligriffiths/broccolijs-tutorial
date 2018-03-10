@@ -33,9 +33,18 @@ Note, the `debug-build` and `debug-serve` are for use with [VS Code](https://cod
 interactive debugging. If you wish to use this, you'll need the files in [this directory](.vscode). You can add 
 breakpoints and then hit the `debug` icon (or CMD + SHIFT + D) and click "play".
 
-Now create a `Brocfile.js` in the root of your project, with the contents: `module.exports = "app";`.
+Now create a `Brocfile.js` in the root of your project, with the contents: 
+```js
+// Brocfile.js
+module.exports = "app";
+```
 
 Next, create a directory `app` within the project, and add a `index.html` file with the contents `Eat your greens!`.
+
+```bash
+mkdir app
+echo 'Eat your greens' > app/index.html
+```
 
 That's it, you're done.
 
