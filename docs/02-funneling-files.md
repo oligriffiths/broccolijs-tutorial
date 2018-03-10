@@ -1,4 +1,4 @@
-## 02-Filtering files
+## 02-Funneling files
 
 Copying the whole input directory to the output directory isn't what one would really call a "build pipeline".
 Sure, it does the job, but you might as well just ship your `app` directory. Lets have a go at filtering the files we're
@@ -42,6 +42,6 @@ Finally, we return the node as the module export, and Broccoli handles all the r
 Running `npm run build` won't really produce any different output, as we only have one file right now, so let's try
 adding some more files in the next step.
 
-Completed Branch: [examples/02-filtering-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/02-filtering-files)
+Completed Branch: [examples/02-funneling-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/02-funneling-files)
 
 Next: [03-merge-trees](/docs/03-merge-trees.md)
