@@ -59,7 +59,7 @@ So, first off, install rollup:
 yarn add --dev broccoli-rollup rollup-plugin-babel
 ```
 
-And set your `Broccoli.js` file to:
+And set your `Brocfile.js` file to:
 
 ```js
 // Brocfile.js

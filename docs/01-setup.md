@@ -15,14 +15,16 @@ Then, create a new directory for this tutorial, and:
 
 In your `package.json` add the following to the `scripts` node (add this if it's not present):
 
-```
-"scripts": {
-    "clean": "rm -rf dist",
-    "build": "npm run clean && broccoli build dist",
-    "serve": "broccoli serve || 1",
-    "debug-build": "npm run clean && node $NODE_DEBUG_OPTION $NODE_DEBUG_OPTION $(which broccoli) build dist",
-    "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
-},
+```json
+{
+    "scripts": {
+        "clean": "rm -rf dist",
+        "build": "npm run clean && broccoli build dist",
+        "serve": "broccoli serve || true",
+        "debug-build": "npm run clean && node $NODE_DEBUG_OPTION $NODE_DEBUG_OPTION $(which broccoli) build dist",
+        "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
+    }
+}
 ```
 
 You can now use `npm run build` and `npm run serve` for convenience.]

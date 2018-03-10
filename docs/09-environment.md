@@ -105,7 +105,7 @@ In order to pass in a different environment, simply add `BROCCOLI_ENV=production
     "clean": "rm -rf dist",
     "build": "npm run clean && broccoli build dist",
     "build-prod": "npm run clean && BROCCOLI_ENV=production broccoli build dist",
-    "serve": "broccoli serve || 1",
+    "serve": "broccoli serve || true",
     "debug-build": "npm run clean && node $NODE_DEBUG_OPTION $(which broccoli) build dist",
     "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
   }
