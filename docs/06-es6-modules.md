@@ -198,4 +198,4 @@ Now open `dist/assets/app.js`, notice how the `bar` is nowhere to be seen? What 
 This is part of the magic of Rollup, it knows, through static analysis, what code is not being used
 and dynamically removes it. Cool huh?
 
-Next: [07-node-modules](/blob/master/docs/07-node-modules.md)
+Next: [07-node-modules](/docs/07-node-modules.md)

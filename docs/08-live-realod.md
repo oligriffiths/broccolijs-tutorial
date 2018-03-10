@@ -90,4 +90,4 @@ Now `build & serve`, try changing a `scss` file, notice how the css refreshes in
 `.js` or `.html` file and the page will refresh. This doesn't support fancy hot reloading like React and Webpack does,
 but that's a slightly different ballgame, and is very architecture dependent.
 
-Next: [09-environment](/blob/master/docs/09-environment.md)
+Next: [09-environment](/docs/09-environment.md)

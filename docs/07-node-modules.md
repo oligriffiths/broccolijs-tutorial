@@ -97,4 +97,4 @@ and run this with `npm run serve` and check the console, you should get:
 foo BlankObject {} (2) [1, 2]
 ```
 
-Next: [07-node-modules](/blob/master/docs/08-live-reload.md)
+Next: [07-node-modules](/docs/08-live-reload.md)

@@ -105,4 +105,4 @@ images/broccoli-logo.png
 index.html
 ```
 
-Next: [04-sass-preprocessing](/blob/master/docs/04-sass-preprocessing.md)
+Next: [04-sass-preprocessing](/docs/04-sass-preprocessing.md)
