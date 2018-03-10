@@ -30,9 +30,8 @@ What we're doing here should be fairly self explanatory, although the "funnel" b
 
 Per the docs:
 
-    The funnel plugin takes an input node, and returns a new node with only a subset of the files from the
-    input node. The files can be moved to different paths. You can use regular expressions to select which
-    files to include or exclude.
+    The funnel plugin takes an input node, and returns a new node with only a subset of the files from the input node.
+    The files can be moved to different paths. You can use regular expressions to select which files to include or exclude.
 
 Basically, this is taking an input node, which can be a string representing a directory or another node,
 selecting only the index.html file (this can be a regex match also) and moving it to the destDir, the root of
