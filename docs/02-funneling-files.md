@@ -3,7 +3,7 @@
 Copying the whole input directory to the output directory isn't what one would really call a "build pipeline".
 Sure, it does the job, but you might as well just ship your `app` directory. Lets have a go at filtering the files we're
 going to build, kind of like a `glob()` file search. For this, we use
-[broccoli-filter](https://github.com/broccolijs/broccoli-filter).
+[broccoli-funnel](https://github.com/broccolijs/broccoli-funnel).
 
 ```sh
 yarn add --dev broccoli-funnel
