@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && broccoli build dist",
-    "serve": "broccoli serve || 1",
+    "serve": "broccoli serve || true",
     "debug-build": "npm run clean && node $NODE_DEBUG_OPTION $(which broccoli) build dist",
     "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
   },
