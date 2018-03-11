@@ -18,7 +18,7 @@ mkdir -p public/images
 Now let's add a JS and a CSS file that'll be the root of our web app and copy that into an `assets` folder.
 
 ```sh
-mkdir app/styles
+mkdir -p app/styles
 ```
 
 In `app/styles/app.css` put:
@@ -45,10 +45,16 @@ In `app/index.html` put:
 </head>
 <body>
 Eat your greens!
+<br />
+<img src="/images/broccoli-logo.png" />
 <script src="/assets/app.js"></script>
 </body>
 </html>
 ```
+
+In `public/images` add this image, named `broccoli-logo.png`
+
+![logo](/docs/assets/broccoli-logo.png)
 
 ```js
 // Brocfile.js
