@@ -62,9 +62,6 @@ let tree = new Merge([html, js, css, public]);
 // Include live reaload server
 tree = new LiveReload(tree, {
   target: 'index.html',
-  options: {
-    debug: true,
-  }
 });
 
 module.exports = tree;
