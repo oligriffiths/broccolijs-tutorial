@@ -137,6 +137,7 @@ Checkout `dist/assets/app.js`, you should see:
 var foo = 'foo';
 
 console.log(foo);
+//# sourceMappingURL=app.js.map
 ```
 
 As you can see, even though `app.js` imports `foo.js`, the compiled output contains no wrapping functions,

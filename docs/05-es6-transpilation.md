@@ -19,9 +19,9 @@ Now open `app/app.js` and set the contents to:
 const message = 'Eat your greens';
 function foo() {
     setTimeout(() => {
-    console.log(message);
-    console.log(this);
-});
+        console.log(message);
+        console.log(this);
+    });
 }
 new foo();
 ```
@@ -109,7 +109,7 @@ function foo() {
     var _this = this;
 
     setTimeout(function () {
-        alert(message);
+        console.log(message);
         console.log(_this);
     });
 }

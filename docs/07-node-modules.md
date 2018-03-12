@@ -80,20 +80,37 @@ And update `app/app.js` with:
 
 import foo from './foo';
 import bar from './foo';
-import BlankObject from 'blank-object';
+import magic from 'magic-string';
+import { Bundle } from 'magic-string';
 import diff from 'arr-diff';
 
-const blank = new BlankObject();
-
-console.log(foo, blank, diff([1,2,3], [3,4,5]));
+console.log(foo, magic, Bundle, diff([1,2,3], [3,4,5]));
 ```
 
-This will now allow Rollup to import the native ES6 module `blank-object` and the Commonjs module `arr-diff`. Go ahead
-and run this with `npm run serve` and check the console, you should get:
+This will now allow Rollup to import the native ES6 module `magic-string` (that just happens to be a a dependency of
+`rollup-plugin-commonjs`) with a `default` and a `named` import of `Bundle`, and the Commonjs module `arr-diff`.
+Go ahead and run this with `npm run serve` and check the console, you should get:
 
 ```sh
-foo BlankObject {} (2) [1, 2]
+foo ƒ MagicString$1( string, options ) {
+	if ( options === void 0 ) options = {};
+
+	var chunk = new Chunk( 0, string.length, string );
+
+	Object.defineProperties( this, {
+		original:              { writable… ƒ Bundle( options ) {
+	if ( options === void 0 ) options = {};
+
+	this.intro = options.intro || '';
+	this.separator = options.separator !== undefined ? options.separator : '\n';
+
+	this.sources = [];
+
+	t… (2) [1, 2]
 ```
+
+If you check the built output, by running `npm run build`, and look at `assets/app.js`, it should contain the inlined
+versions of those modules
 
 Completed Branch: [examples/07-node-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/07-node-modules)
 
