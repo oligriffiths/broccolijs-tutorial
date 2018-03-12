@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import foo from './foo';
-import bar from './foo';
+import foo from "./foo";
+import { bar } from "./foo";
 
-console.log(foo, blank);
+console.log(foo, bar);
