@@ -1,19 +1,17 @@
-## 10-Minify
+## 11-Fingerprinting
 
-Minifying or Uglifying as it's also sometimes called, is the process of turning normal Javascript or CSS,
-into a compressed version, with much shorter variable and function names (for JS), and unnecessary whitespace removed
-to save on bytes shipped to the browser. Fewer bytes means less time transferring files and less time for the browser
-to parse the file.
+When deploying updates to your new shiny app, you're going to want the browser to fetch the latest version if there has
+been an update, rather than using the cached version the browser may store. The simplest way we can do this is by
+appending a content hash to the filename, to ensure that when you push a new update, a new hash will be created, thus
+invalidating the previous cached versions.
+
+To do this, we can use a simple plugin called [broccoli-asset-rev](https://github.com/rickharrison/broccoli-asset-rev):
 
 ```sh
-yarn add --dev rollup-plugin-uglify broccoli-clean-css
+yarn add --dev broccoli-asset-rev
 ```
 
-This will install the Rollup Uglify plugin. It is also possible to use the `broccoli-uglify-sourcemap` Broccoli plugin,
-and Rollup seems to work just fine with that plugin, however it makes more sense to use the supported Rollup plugin
-rather than the Broccoli one. We're also installing the `broccoli-clean-css` plugin that will compress our CSS.
-
-Now update your `Brocfile.js` to:
+Now, update your `Brocfile.js`:
 
 ```js
 const Funnel = require('broccoli-funnel');
@@ -22,6 +20,7 @@ const CompileSass = require('broccoli-sass-source-maps');
 const Rollup = require('broccoli-rollup');
 const LiveReload = require('broccoli-livereload');
 const CleanCss = require('broccoli-clean-css');
+const AssetRev = require('broccoli-asset-rev');
 const babel = require('rollup-plugin-babel');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
@@ -96,8 +95,10 @@ const public = new Funnel('public', {
 // Remove the existing module.exports and replace with:
 let tree = new Merge([html, js, css, public]);
 
-// Include live reaload server
-if (!isProduction) {
+// Include asset hashes
+if (isProduction) {
+  tree = new AssetRev(tree);
+} else {
   tree = new LiveReload(tree, {
     target: 'index.html',
   });
@@ -106,13 +107,10 @@ if (!isProduction) {
 module.exports = tree;
 ```
 
-So what we're doing here is 2 things. 
+What we've done here, is add the `AssetRev` plugin as the last plugin to the tree, for production builds only. It will
+auto-hash `js`, `css`, `png`, `jpg`, `gif` and `map` files, and will update `html`, `css` and `js` files with any
+references to the original un-hashed file, with the new hashed file. There are additional options to specify a prefix
+so that files can be hosted on a CDN if you wish, see the plugin github page.
 
-1. Moving the Rollup plugins into a variable, so we can append the `uglify()` plugin only for production
-2. Changing the `css` variable to `let` so we can overwrite it for production, passing it into `CleanCss()`
+Completed Branch: [examples/11-fingerprints](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/11-fingerprints)
 
-That's it, now try building your prod application: `npm run build-prod`
-
-Completed Branch: [examples/10-minify](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/10-minify)
-
-Next: [11-fingerprints](/docs/11-fingerprints.md)
