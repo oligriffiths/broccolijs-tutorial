@@ -172,31 +172,6 @@ Now open `dist/assets/app.js`, notice how the `bar` is nowhere to be seen? What 
 This is part of the magic of Rollup, it knows, through static analysis, what code is not being used
 and dynamically removes it. Cool huh?
 
-### Tree shaking
-
-This is not a euphamism, it's an actual term that refers to removing dead/unused imported code.
-
-Open `app/foo.js`
-
-Notice we're also exporting a constant:
-
-```js
-export const bar = 'bar';
-```
-
-Open `app/app.js`
-
-Notice we're importing this constant:
-
-```js
-import bar from './foo';
-```
-
-Now open `dist/assets/app.js`, notice how the `bar` is nowhere to be seen? What is this witchcraft?
-
-This is part of the magic of Rollup, it knows, through static analysis, what code is not being used
-and dynamically removes it. Cool huh?
-
 Completed Branch: [examples/06-es6-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/06-es6-modules)
 
 Next: [07-node-modules](/docs/07-node-modules.md)
