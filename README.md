@@ -162,6 +162,6 @@ Each step of the tutorial has an accompanied branch, so you can checkout the bra
 able to build the project and see the output. Remember to run `yarn` when checking out new branches.
 All the documentation is in the `docs` folder, split into sections.
 
-* [01-setup](docs/01-setup.md)
-* [02-funneling-files](docs/02-funneling-files.md)
-* [03-merge-trees](docs/03-merge-trees.md)
+A keynote presentation is available here: [Presentation](Broccoli-Presentation.pdf)
+
+Step 1: [01-setup](docs/01-setup.md)
