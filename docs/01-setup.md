@@ -1,15 +1,26 @@
 ## 01-Setup:
 
-First things first, we're going to use [yarn](https://yarnpkg.com) instead of `npm` to ensure our dependencies are in
-lock step.
+First things first, it is assumed that you know how to use a terminal on your machine, if you're unfamiliar with the
+terminal, best get familiar with that first.
 
-Now install broccoli-cli globally:
+You're also going to want to use Node 8 as this is the current LTS (long term support) version.
+
+We're going to use [yarn](https://yarnpkg.com) instead of `npm` to ensure our dependencies are in lock step.
+
+Now install the broccoli-cli tool globally:
 
 `yarn global add broccoli-cli`
 
-Then, create a new directory for this tutorial, and:
+The `broccoli` command should now be available in your terminal. This CLI tool just checks some basic dependencies in
+the current project before running the main broccoli library that exists within your project. So lets do that next.
 
-`yarn add --dev broccoli`
+Create a new directory for this tutorial and install broccoli:
+
+```sh
+mkdir broccoli-tutorial
+cd broccoli-tutorial
+yarn add --dev broccoli@^1.1.4
+```
 
 In your `package.json` add the following to the `scripts` node (add this if it's not present):
 
@@ -17,21 +28,31 @@ In your `package.json` add the following to the `scripts` node (add this if it's
 {
     "scripts": {
         "clean": "rm -rf dist",
-        "build": "npm run clean && broccoli build dist",
+        "build": "yarn clean && broccoli build dist",
         "serve": "broccoli serve || true",
-        "debug-build": "npm run clean && node $NODE_DEBUG_OPTION $NODE_DEBUG_OPTION $(which broccoli) build dist",
+        "debug-build": "yarn clean && node $NODE_DEBUG_OPTION $NODE_DEBUG_OPTION $(which broccoli) build dist",
         "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
     }
 }
 ```
 
-You can now use `npm run build` and `npm run serve` for convenience.]
+You can now use `yarn build` and `yarn serve` for convenience.
 
-Note, the `debug-build` and `debug-serve` are for use with [VS Code](https://code.visualstudio.com/) to allow for
-interactive debugging. If you wish to use this, you'll need the files in [this directory](.vscode). You can add 
-breakpoints and then hit the `debug` icon (or CMD + SHIFT + D) and click "play".
+Note: the `debug-build` and `debug-serve` are for use with [VS Code](https://code.visualstudio.com/) to allow for
+interactive debugging. If you wish to use this, you'll need the files in
+[this directory](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/00-init/.vscode).
+You can add breakpoints by clicking in the column to the left of the line numbers (on the left) and then hit the
+`debug` icon on the very left side of the screen (looks like a bug) or CMD + SHIFT + D, select `debug-build` from the
+dropdown menu at the top, and click "play".
 
-Now create a `Brocfile.js` in the root of your project, with the contents: 
+Note: the `clean` task is used to remove the `dist` directory before the build, or broccoli complains that the directory
+already exists.
+
+### Brocfile.js
+
+A `Brocfile.js` must live in the root of your project, this is what will contain your build pipeline.
+
+So create a `Brocfile.js` in the root of your project, with the contents: 
 ```js
 // Brocfile.js
 module.exports = "app";
