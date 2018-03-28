@@ -6,7 +6,7 @@ and ultimately have them written to our target directory.
 Introducing, [broccoli-merge-trees](https://github.com/broccolijs/broccoli-merge-trees)
 
 ```sh
-yarn add --dev broccoli-merge-trees
+yarn add --dev broccoli-merge-trees@^3.0.0
 ```
 
 Now let's add a `public` directory so we can ship unprocessed assets like images:

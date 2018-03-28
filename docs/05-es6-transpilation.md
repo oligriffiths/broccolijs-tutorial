@@ -51,14 +51,14 @@ let js = new Funnel(appRoot, {
 // Transpile JS files to ES5
 js = new Babel(js, {
   browserPolyfill: true,
-  sourceMap: 'inline',
+  sourceMap: "inline",
 });
 
 // Copy CSS file into assets
 const css = new CompileSass(
   [appRoot],
-  'styles/app.scss',
-  'assets/app.css',
+  "styles/app.scss",
+  "assets/app.css",
   {
     sourceMap: true,
     sourceMapContents: true,

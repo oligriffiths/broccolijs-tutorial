@@ -11,7 +11,8 @@ For this, we will use the excellent [broccoli-sass-source-maps](https://github.c
 plugin.
 
 ```sh
-yarn add --dev broccoli-sass-source-maps
+yarn add --dev broccoli-sass-source-maps@^2.2.0
+
 mv app/styles/app.css app/styles/app.scss
 ```
 
@@ -97,7 +98,7 @@ const css = new CompileSass(
 );
 ```
 
-Now `build & serve` and you should see that when inspecting the html tag, the line has changed to line 2 and the
+Now `yarn serve` and you should see that when inspecting the html tag, the line has changed to line 2 and the
 file is now `app.scss`. If you click the file name in the inspector, it should take you to the source `app.scss` 
 file, showing the original scss, complete with variables.
 

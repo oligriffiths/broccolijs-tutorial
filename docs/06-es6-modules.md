@@ -24,7 +24,7 @@ import bar from './foo';
 console.log(foo);
 ```
 
-Now `build & serve`, refresh the browser, and:
+Now run `yarn serve`, refresh the browser, and:
 
 ```sh
 app.js:5 Uncaught ReferenceError: require is not defined
@@ -54,7 +54,7 @@ efficiently bundle them up into a single file for use in browsers and Node.js
 So, first off, install rollup:
 
 ```sh
-yarn add --dev broccoli-rollup rollup-plugin-babel
+yarn add --dev broccoli-rollup rollup-plugin-babel@^6.1.4
 ```
 
 And set your `Brocfile.js` file to:
@@ -82,7 +82,7 @@ let js = new Rollup(appRoot, {
     input: 'app.js',
     output: {
       file: 'assets/app.js',
-      format: 'es',
+      format: 'iife',
       sourcemap: true,
     },
     plugins: [
