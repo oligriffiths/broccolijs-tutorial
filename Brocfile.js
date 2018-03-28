@@ -7,14 +7,15 @@ const appRoot = 'app';
 
 // Copy HTML file from app root to destination
 const html = new Funnel(appRoot, {
-  files : ['index.html'],
-  destDir : '/'
+  files: ["index.html"],
+  annotation: "Index file",
 });
 
 // Copy JS file into assets
-let js = new Funnel(appRoot, {
-  files : ['app.js'],
-  destDir : '/assets'
+const js = new Funnel(appRoot, {
+  files: ["app.js"],
+  destDir: "/assets",
+  annotation: "JS files",
 });
 
 // Transpile JS files to ES5
@@ -31,12 +32,13 @@ const css = new CompileSass(
   {
     sourceMap: true,
     sourceMapContents: true,
+    annotation: "Sass files"
   }
 );
 
 // Copy public files into destination
 const public = new Funnel('public', {
-  destDir: "/"
+  annotation: "Public files",
 });
 
-module.exports = new Merge([html, js, css, public]);
+module.exports = new Merge([html, js, css, public], {annotation: "Final output"});
