@@ -29,4 +29,4 @@ const public = new Funnel('public', {
   annotation: "Public files",
 });
 
-module.exports = new Merge([html, js, css, public]);
+module.exports = new Merge([html, js, css, public], {annotation: "Final output"});
