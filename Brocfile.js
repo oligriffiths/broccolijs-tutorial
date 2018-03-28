@@ -7,13 +7,14 @@ const appRoot = "app";
 // Copy HTML file from app root to destination
 const html = new Funnel(appRoot, {
   files: ["index.html"],
-  destDir: "/"
+  annotation: "Index file",
 });
 
 // Copy JS file into assets
 const js = new Funnel(appRoot, {
   files: ["app.js"],
-  destDir: "/assets"
+  destDir: "/assets",
+  annotation: "JS files",
 });
 
 // Compile sass files
@@ -29,7 +30,7 @@ const css = new CompileSass(
 
 // Copy public files into destination
 const public = new Funnel('public', {
-  destDir: "/"
+  annotation: "Public files",
 });
 
 module.exports = new Merge([html, js, css, public]);
