@@ -25,6 +25,7 @@ const css = new CompileSass(
   {
     sourceMap: true,
     sourceMapContents: true,
+    annotation: "Sass files"
   }
 );
 
