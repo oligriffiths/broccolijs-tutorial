@@ -1,30 +1,31 @@
-const Funnel = require('broccoli-funnel');
-const Merge = require('broccoli-merge-trees');
-const CompileSass = require('broccoli-sass-source-maps');
-const Rollup = require('broccoli-rollup');
-const babel = require('rollup-plugin-babel');
+const Funnel = require("broccoli-funnel");
+const Merge = require("broccoli-merge-trees");
+const CompileSass = require("broccoli-sass-source-maps");
+const Rollup = require("broccoli-rollup");
+const babel = require("rollup-plugin-babel");
 
-const appRoot = 'app';
+const appRoot = "app";
 
 // Copy HTML file from app root to destination
 const html = new Funnel(appRoot, {
-  files : ['index.html'],
-  destDir : '/'
+  files: ["index.html"],
+  annotation: "Index file",
 });
 
 // Compile JS through rollup
 let js = new Rollup(appRoot, {
-  inputFiles: ['**/*.js'],
+  inputFiles: ["**/*.js"],
+  annotation: "JS Transformation",
   rollup: {
-    input: 'app.js',
+    input: "app.js",
     output: {
-      file: 'assets/app.js',
-      format: 'es',
+      file: "assets/app.js",
+      format: "es",
       sourcemap: true,
     },
     plugins: [
       babel({
-        exclude: 'node_modules/**',
+        exclude: "node_modules/**",
       })
     ],
   }
@@ -33,17 +34,18 @@ let js = new Rollup(appRoot, {
 // Copy CSS file into assets
 const css = new CompileSass(
   [appRoot],
-  'styles/app.scss',
-  'assets/app.css',
+  "styles/app.scss",
+  "assets/app.css",
   {
     sourceMap: true,
     sourceMapContents: true,
+    annotation: "Sass files"
   }
 );
 
 // Copy public files into destination
-const public = new Funnel('public', {
-  destDir: "/"
+const public = new Funnel("public", {
+  annotation: "Public files",
 });
 
-module.exports = new Merge([html, js, css, public]);
+module.exports = new Merge([html, js, css, public], {annotation: "Final output"});
