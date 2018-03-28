@@ -66,25 +66,27 @@ const appRoot = "app";
 // Copy HTML file from app root to destination
 const html = new Funnel(appRoot, {
   files: ["index.html"],
-  destDir: "/"
+  annotation: "Index file",
 });
 
 // Copy JS file into assets
 const js = new Funnel(appRoot, {
   files: ["app.js"],
-  destDir: "/assets"
+  destDir: "/assets",
+  annotation: "JS files",
 });
 
 // Copy CSS file into assets
 const css = new Funnel(appRoot, {
   srcDir: "styles",
   files: ["app.css"],
-  destDir: "/assets"
+  destDir: "/assets",
+  annotation: "CSS files",
 });
 
 // Copy public files into destination
 const public = new Funnel('public', {
-  destDir: "/"
+  annotation: "Public files",
 });
 
 module.exports = new Merge([html, js, css, public]);
@@ -98,9 +100,10 @@ We've also added a `public` filter, that merely copies the contents of `/public`
 
 Then, we take all these nodes, and merge them together, so all files end up in the target directory.
 
-Now `build & serve`, you should get an alert message saying `Eat your greens` with a nice pale green background.
+Now run `yarn serve`, refresh your browser and you should get an alert message saying `Eat your greens` with a nice pale
+green background.
 
-The target `dist` directory should contain:
+Running `yarn build` the target `dist` directory should contain:
 
 ```sh
 assets/app.js
