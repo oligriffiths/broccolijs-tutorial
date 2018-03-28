@@ -1,7 +1,7 @@
 ## 04-SCSS Preprocessing
 
 So our app is coming along, we have an index page that loads a javascript file and a lovely green background.
-But css is so old school, we want to be able to write some fancy scss and have a preprocessor convert that to
+But css is so old school, we want to be able to write some fancy scss and have a preprocessor convert that to 
 css for us.
 
 For the purposes of this tutorial, I am going to use SCSS, however there are sass, less and other preprocessors
@@ -36,28 +36,32 @@ const appRoot = "app";
 // Copy HTML file from app root to destination
 const html = new Funnel(appRoot, {
   files: ["index.html"],
-  destDir: "/"
+  annotation: "Index file",
 });
 
 // Copy JS file into assets
 const js = new Funnel(appRoot, {
   files: ["app.js"],
-  destDir: "/assets"
+  destDir: "/assets",
+  annotation: "JS files",
 });
 
 // Compile sass files
 const css = new CompileSass(
   [appRoot],
   "styles/app.scss",
-  "assets/app.css"
+  "assets/app.css",
+  {
+    annotation: "Sass files",
+  }
 );
 
 // Copy public files into destination
 const public = new Funnel('public', {
-  destDir: "/"
+  annotation: "Public files",
 });
 
-module.exports = new Merge([html, js, css, public]);
+module.exports = new Merge([html, js, css, public], {annotation: "Final output"});
 ```
 
 As you can see, we're now using the `compileSass` plugin to transform our `scss` file into a `css` file, and
@@ -86,6 +90,7 @@ const css = new CompileSass(
   "styles/app.scss",
   "assets/app.css",
   {
+    annotation: "Sass files",
     sourceMap: true,
     sourceMapContents: true,
   }
