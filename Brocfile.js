@@ -12,7 +12,7 @@ const html = new Funnel(appRoot, {
 });
 
 // Copy JS file into assets
-const js = new Funnel(appRoot, {
+let js = new Funnel(appRoot, {
   files: ["app.js"],
   destDir: "/assets",
   annotation: "JS files",
