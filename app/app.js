@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 import foo from './foo';
-import bar from './foo';
+import { fooNamed } from './foo';
 import BlankObject from 'blank-object';
 import diff from 'arr-diff';
 
