@@ -2,9 +2,8 @@
 
 import foo from './foo';
 import { fooNamed } from './foo';
-import BlankObject from 'blank-object';
+import magic from 'magic-string';
+import { Bundle } from 'magic-string';
 import diff from 'arr-diff';
 
-const blank = new BlankObject();
-
-console.log(foo, blank, diff([1,2,3], [3,4,5]));
+console.log(foo, magic, Bundle, diff([1,2,3], [3,4,5]));
