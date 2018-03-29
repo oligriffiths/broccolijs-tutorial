@@ -171,3 +171,7 @@ html {
 We're now defining the colors as variables, and not using the short name for the colors but the full hex value.
 
 Now run `yarn build` and your project should build with no errors.
+
+Completed Branch: [examples/09-linting](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/09-linting)
+
+Next: [10-environment](/docs/10-environment.md)
