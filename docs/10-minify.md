@@ -111,7 +111,7 @@ So what we're doing here is 2 things.
 1. Moving the Rollup plugins into a variable, so we can append the `uglify()` plugin only for production
 2. Changing the `css` variable to `let` so we can overwrite it for production, passing it into `CleanCss()`
 
-That's it, now try building your prod application: `npm run build-prod`
+That's it, now try building your prod application: `yarn build-prod`
 
 Completed Branch: [examples/10-minify](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/10-minify)
 

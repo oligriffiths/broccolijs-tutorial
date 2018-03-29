@@ -44,7 +44,7 @@ option to all plugins.
 
 Finally, we return the node as the module export, and Broccoli handles all the rest.
 
-Running `npm run build` won't really produce any different output, as we only have one file right now, so let's try
+Running `yarn build` won't really produce any different output, as we only have one file right now, so let's try
 adding some more files in the next step.
 
 Completed Branch: [examples/02-funneling-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/02-funneling-files)

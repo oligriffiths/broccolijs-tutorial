@@ -116,7 +116,7 @@ foo ƒ MagicString$1( string, options ) {
 	t… (2) [1, 2]
 ```
 
-If you check the built output, by running `npm run build`, and look at `assets/app.js`, it should contain the inlined
+If you check the built output, by running `yarn build`, and look at `assets/app.js`, it should contain the inlined
 versions of those modules
 
 Completed Branch: [examples/07-node-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/07-node-modules)

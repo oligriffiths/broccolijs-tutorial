@@ -83,7 +83,7 @@ $ rm -rf dist
 ✨  Done in 1.05s.
 ```
 
-This npm run command will remove any previous builds, and run a new build, outputting to the `dist` directory.
+This yarn command will remove any previous builds, and run a new build, outputting to the `dist` directory.
 Broccoli doesn't remove previous builds by default, so we must remove it before starting a new build.
 
 The contents of `app` should now be in the `dist` directory. Try:

@@ -100,16 +100,16 @@ In order to pass in a different environment, simply add `BROCCOLI_ENV=production
 {
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && broccoli build dist",
-    "build-prod": "npm run clean && BROCCOLI_ENV=production broccoli build dist",
-    "serve": "broccoli serve || true",
-    "debug-build": "npm run clean && node $NODE_DEBUG_OPTION $(which broccoli) build dist",
+    "build": "yarn clean && broccoli build dist",
+    "build-prod": "yarn clean && BROCCOLI_ENV=production broccoli build dist",
+    "serve": "broccoli serve",
+    "debug-build": "yarn clean && node $NODE_DEBUG_OPTION $(which broccoli) build dist",
     "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
   }
 }
 ```
 
-Now, running `npm run build-prod` will build in "production" mode.
+Now, running `yarn build-prod` will build in "production" mode.
 
 Completed Branch: [examples/09-environment](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/09-environment)
 
