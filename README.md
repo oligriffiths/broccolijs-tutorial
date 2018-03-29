@@ -27,7 +27,7 @@ Each step of the tutorial has an accompanied branch, so you can checkout the bra
 able to build the project and see the output. Remember to run `yarn` when checking out new branches.
 All the documentation is in the `docs` folder, split into sections.
 
-A presentation is available here: [Presentation](Broccoli-Presentation.pdf)
+An overview presentation of Broccoli is available here: [Presentation](Broccoli-Presentation.pdf)
 
 Steps:
 * [00-intro](#intro)
@@ -46,7 +46,7 @@ Steps:
 
 ## Follow along
 
-Here's a talk I gave at EmberNYC meetup in Jan 2017 that covers most of this article.
+Here's a talk I gave at EmberNYC meetup in Jan 2017 that covers a lot of this article.
 
 [Watch EmberNYC video](https://www.youtube.com/embed/JTzvYJBxwyI?start=141&end=1377)
 
@@ -178,6 +178,11 @@ To run the server, do:
 `broccoli serve`
 
 This should start a local HTTP server on `http://localhost:4200`
+
+## Tutorial
+
+Now continue on with the tutorial, each section has a corresponding branch of this repo you can check out to see the
+process and build the project yourself.
 
 Steps:
 * [01-setup](docs/01-setup.md)
