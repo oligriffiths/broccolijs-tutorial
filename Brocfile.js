@@ -20,7 +20,7 @@ let js = new Rollup(appRoot, {
     input: "app.js",
     output: {
       file: "assets/app.js",
-      format: "es",
+      format: "iife",
       sourcemap: true,
     },
     plugins: [
