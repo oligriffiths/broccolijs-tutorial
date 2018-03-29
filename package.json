@@ -5,18 +5,16 @@
   "main": " ",
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && broccoli build dist",
-    "serve": "broccoli serve || 1",
-    "debug-build": "npm run clean && node $NODE_DEBUG_OPTION $(which broccoli) build dist",
+    "build": "yarn clean && broccoli build dist",
+    "serve": "broccoli serve",
+    "debug-build": "yarn clean && node $NODE_DEBUG_OPTION $(which broccoli) build dist",
     "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/oligriffiths/broccolijs-tutorial.git"
   },
-  "keywords": [
-    "broccoli"
-  ],
+  "keywords": ["broccoli"],
   "author": "Oli Griffiths",
   "license": "MIT",
   "bugs": {
