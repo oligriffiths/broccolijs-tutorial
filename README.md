@@ -21,6 +21,29 @@ Then we had gulp, because we wanted to write code to compile our code, then it g
 Then we had webpack that does bundling, minifaction, source maps, code splitting, but, it's kinda hard to configure.
 So Broccoli.js provides a simple Javascript API to do simple and complex file transformations, and do it fast.
 
+## Tutorial
+
+Each step of the tutorial has an accompanied branch, so you can checkout the branch if you get lost and you should be
+able to build the project and see the output. Remember to run `yarn` when checking out new branches.
+All the documentation is in the `docs` folder, split into sections.
+
+A presentation is available here: [Presentation](Broccoli-Presentation.pdf)
+
+Steps:
+* [00-intro](#intro)
+* [01-setup](docs/01-setup.md)
+* [02-funneling-files](docs/02-funneling-files.md)
+* [03-merge-trees](docs/03-merge-trees.md)
+* [04-sass-preprocessing](docs/04-sass-preprocessing.md)
+* [05-es6-transpilation](docs/05-es6-transpilation.md)
+* [06-es6-modules](docs/06-es6-modules.md)
+* [07-node-modules](docs/07-node-modules.md)
+* [08-live-reload](docs/08-live-reload.md)
+* [09-linting](docs/09-linting.md)
+* [10-environment](docs/10-environment.md)
+* [11-minify](docs/11-minify.md)
+* [12-fingerprints](docs/12-fingerprints.md)
+
 ## Follow along
 
 Here's a talk I gave at EmberNYC meetup in Jan 2017 that covers most of this article.
@@ -29,7 +52,7 @@ Here's a talk I gave at EmberNYC meetup in Jan 2017 that covers most of this art
 
 [![Watch EmberNYC video](https://img.youtube.com/vi/JTzvYJBxwyI/0.jpg)](https://www.youtube.com/embed/JTzvYJBxwyI?start=141&end=1377)
 
-## Enter Broccoli.js.
+## Intro
 
 What is a build tool responsible for? Well, it's job is to take input files (your javascript, css, html, etc) and
 process them, to output them into some form of distributable version. Typically this will involve things like javascript
@@ -155,13 +178,3 @@ To run the server, do:
 `broccoli serve`
 
 This should start a local HTTP server on `http://localhost:4200`
-
-## Tutorial
-
-Each step of the tutorial has an accompanied branch, so you can checkout the branch if you get lost and you should be
-able to build the project and see the output. Remember to run `yarn` when checking out new branches.
-All the documentation is in the `docs` folder, split into sections.
-
-A keynote presentation is available here: [Presentation](Broccoli-Presentation.pdf)
-
-Step 1: [01-setup](docs/01-setup.md)
