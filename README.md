@@ -178,3 +178,17 @@ To run the server, do:
 `broccoli serve`
 
 This should start a local HTTP server on `http://localhost:4200`
+
+Steps:
+* [01-setup](docs/01-setup.md)
+* [02-funneling-files](docs/02-funneling-files.md)
+* [03-merge-trees](docs/03-merge-trees.md)
+* [04-sass-preprocessing](docs/04-sass-preprocessing.md)
+* [05-es6-transpilation](docs/05-es6-transpilation.md)
+* [06-es6-modules](docs/06-es6-modules.md)
+* [07-node-modules](docs/07-node-modules.md)
+* [08-live-reload](docs/08-live-reload.md)
+* [09-linting](docs/09-linting.md)
+* [10-environment](docs/10-environment.md)
+* [11-minify](docs/11-minify.md)
+* [12-fingerprints](docs/12-fingerprints.md)
