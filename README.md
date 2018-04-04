@@ -12,7 +12,7 @@ Cool, wait, what the hell does that mean?
 
 "Ambitious applications"? That sounds scary, I just wanna make a
 simple JS app, with ES6 transpilation, SCSS pre-processing, asset concatenation, live reload, uglification,
-vendor npm module inclusion, developement server, and, oh, wait, perhaps it's ambitious.
+vendor npm module inclusion, development server, and, oh, wait, perhaps it's ambitious.
 
 Oh, yeah, and I want all that to be fast.
 
