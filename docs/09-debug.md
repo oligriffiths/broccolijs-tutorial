@@ -1,4 +1,4 @@
-# 10-Debugging
+# 09-Debugging
 
 Because Broccoli handles managing the state of the file system between transformations, it can sometimes be tricky to
 debug at what stage a transformation went wrong. Luckily, there is a handy and hilariously named ;) package called 
