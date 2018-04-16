@@ -10,7 +10,7 @@ Try creating a file `app/foo.js` with the contents:
 
 ```js
 // app/foo.js
-export const bar = 'bar';
+export const fooNamed = 'fooNamed';
 export default 'foo';
 ```
 
@@ -19,12 +19,12 @@ and set the contents of `app/app.js` to:
 ```js
 // app/app.js
 import foo from './foo';
-import bar from './foo';
+import { fooNamed } from "./foo";
 
 console.log(foo);
 ```
 
-Now `build & serve`, refresh the browser, and:
+Now run `yarn serve`, refresh the browser, and:
 
 ```sh
 app.js:5 Uncaught ReferenceError: require is not defined
@@ -54,40 +54,41 @@ efficiently bundle them up into a single file for use in browsers and Node.js
 So, first off, install rollup:
 
 ```sh
-yarn add --dev broccoli-rollup rollup-plugin-babel
+yarn add --dev broccoli-rollup rollup-plugin-babel@^6.1.4
 ```
 
 And set your `Brocfile.js` file to:
 
 ```js
 // Brocfile.js
-const Funnel = require('broccoli-funnel');
-const Merge = require('broccoli-merge-trees');
-const CompileSass = require('broccoli-sass-source-maps');
-const Rollup = require('broccoli-rollup');
-const babel = require('rollup-plugin-babel');
+const Funnel = require("broccoli-funnel");
+const Merge = require("broccoli-merge-trees");
+const CompileSass = require("broccoli-sass-source-maps");
+const Rollup = require("broccoli-rollup");
+const babel = require("rollup-plugin-babel");
 
-const appRoot = 'app';
+const appRoot = "app";
 
 // Copy HTML file from app root to destination
 const html = new Funnel(appRoot, {
-  files : ['index.html'],
-  destDir : '/'
+  files: ["index.html"],
+  annotation: "Index file",
 });
 
 // Compile JS through rollup
 let js = new Rollup(appRoot, {
-  inputFiles: ['**/*.js'],
+  inputFiles: ["**/*.js"],
+  annotation: "JS Transformation",
   rollup: {
-    input: 'app.js',
+    input: "app.js",
     output: {
-      file: 'assets/app.js',
-      format: 'es',
+      file: "assets/app.js",
+      format: "iife",
       sourcemap: true,
     },
     plugins: [
       babel({
-        exclude: 'node_modules/**',
+        exclude: "node_modules/**",
       })
     ],
   }
@@ -96,20 +97,21 @@ let js = new Rollup(appRoot, {
 // Copy CSS file into assets
 const css = new CompileSass(
   [appRoot],
-  'styles/app.scss',
-  'assets/app.css',
+  "styles/app.scss",
+  "assets/app.css",
   {
     sourceMap: true,
     sourceMapContents: true,
+    annotation: "Sass files"
   }
 );
 
 // Copy public files into destination
-const public = new Funnel('public', {
-  destDir: "/"
+const public = new Funnel("public", {
+  annotation: "Public files",
 });
 
-module.exports = new Merge([html, js, css, public]);
+module.exports = new Merge([html, js, css, public], {annotation: "Final output"});
 ```
 
 Here are the changes:
@@ -132,20 +134,24 @@ Checkout `dist/assets/app.js`, you should see:
 
 ```js
 // dist/assets/app.js
+(function () {
 'use strict';
 
 var foo = 'foo';
 
 console.log(foo);
+
+}());
 //# sourceMappingURL=app.js.map
 ```
 
-As you can see, even though `app.js` imports `foo.js`, the compiled output contains no wrapping functions,
-no extraneous code, just the value imported from `foo.js` and the `console.log()` statement. 
+As you can see, even though `app.js` imports `foo.js`, the compiled output doesn't contain any dynamic import functions,
+like you'll see with require.js or system.js code, nor does it need an external loader.
+The code is actually inlined. With the `format` parameter `iife`, the output gets wrapped in immediately invoked
+function expressions so that it will run correctly in the browser. There are other format options available, checkout the
+[Rollup docs](https://rollupjs.org/guide/en#big-list-of-options) for details.
 
-** The audience gasps in amazement **
-
-But wait, there's more?
+But wait, there's more...
 
 ### Tree shaking
 
@@ -156,7 +162,7 @@ Open `app/foo.js`
 Notice we're also exporting a constant:
 
 ```js
-export const bar = 'bar';
+export const fooNamed = 'fooNamed';
 ```
 
 Open `app/app.js`
@@ -164,13 +170,13 @@ Open `app/app.js`
 Notice we're importing this constant:
 
 ```js
-import bar from './foo';
+import { fooNamed } from "./foo";
 ```
 
-Now open `dist/assets/app.js`, notice how the `bar` is nowhere to be seen? What is this witchcraft?
+Now open `dist/assets/app.js`, notice how the `fooNamed` variable is nowhere to be seen? What is this witchcraft?
 
-This is part of the magic of Rollup, it knows, through static analysis, what code is not being used
-and dynamically removes it. Cool huh?
+This is part of the magic of Rollup, it knows, through static analysis, what code is not being used and dynamically
+removes it. Cool huh?
 
 Completed Branch: [examples/06-es6-modules](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/06-es6-modules)
 
