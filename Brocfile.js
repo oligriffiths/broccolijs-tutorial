@@ -10,6 +10,11 @@ const debug = require('broccoli-stew').debug;
 const babel = require("rollup-plugin-babel");
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const env = require('broccoli-env').getEnv() || 'development';
+const isProduction = env === 'production';
+
+// Status
+console.log('Environment: ' + env);
 
 const appRoot = "app";
 
@@ -33,7 +38,7 @@ js = new Rollup(js, {
     output: {
       file: "assets/app.js",
       format: "iife",
-      sourcemap: true,
+      sourcemap: !isProduction,
     },
     plugins: [
       nodeResolve({
@@ -61,7 +66,7 @@ css = new CompileSass(
   "app.scss",
   "assets/app.css",
   {
-    sourceMap: true,
+    sourceMap: !isProduction,
     sourceMapContents: true,
     annotation: "Sass files"
   }
@@ -81,8 +86,10 @@ tree = log(tree, {
 });
 
 // Include live reaload server
-tree = new LiveReload(tree, {
-  target: 'index.html',
-});
+if (!isProduction) {
+  tree = new LiveReload(tree, {
+    target: 'index.html',
+  });
+}
 
 module.exports = tree;

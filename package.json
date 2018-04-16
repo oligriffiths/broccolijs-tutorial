@@ -6,6 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "yarn clean && broccoli build dist",
+    "build-prod": "npm run clean && BROCCOLI_ENV=production broccoli build dist",
     "serve": "broccoli serve",
     "debug-build": "yarn clean && node $NODE_DEBUG_OPTION $(which broccoli) build dist",
     "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
@@ -28,6 +29,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "broccoli": "^1.1.4",
+    "broccoli-env": "^0.0.1",
     "broccoli-funnel": "^2.0.1",
     "broccoli-lint-eslint": "^3.3.2",
     "broccoli-livereload": "^1.3.0",
