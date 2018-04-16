@@ -47,6 +47,6 @@ Finally, we return the node as the module export, and Broccoli handles all the r
 Running `yarn build` won't really produce any different output, as we only have one file right now, so let's try
 adding some more files in the next step.
 
-Completed Branch: [examples/02-funneling-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/02-funneling-files)
+Completed Branch: [examples/02-funneling-files](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/02-funnelling-files)
 
 Next: [03-merge-trees](/docs/03-merge-trees.md)
