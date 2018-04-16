@@ -30,7 +30,6 @@ All the documentation is in the `docs` folder, split into sections.
 An overview presentation of Broccoli is available here: [Presentation](Broccoli-Presentation.pdf)
 
 Steps:
-* [00-intro](#intro)
 * [01-setup](docs/01-setup.md)
 * [02-funneling-files](docs/02-funneling-files.md)
 * [03-merge-trees](docs/03-merge-trees.md)
@@ -39,10 +38,11 @@ Steps:
 * [06-es6-modules](docs/06-es6-modules.md)
 * [07-node-modules](docs/07-node-modules.md)
 * [08-live-reload](docs/08-live-reload.md)
-* [09-linting](docs/10-linting.md)
-* [10-environment](docs/11-environment.md)
-* [11-minify](docs/12-minify.md)
-* [12-fingerprints](docs/13-fingerprints.md)
+* [09-debug](docs/09-debug.md)
+* [10-linting](docs/10-linting.md)
+* [11-environment](docs/11-environment.md)
+* [12-minify](docs/12-minify.md)
+* [13-fingerprints](docs/13-fingerprints.md)
 
 ## Follow along
 
@@ -178,22 +178,3 @@ To run the server, do:
 `broccoli serve`
 
 This should start a local HTTP server on `http://localhost:4200`
-
-## Tutorial
-
-Now continue on with the tutorial, each section has a corresponding branch of this repo you can check out to see the
-process and build the project yourself.
-
-Steps:
-* [01-setup](docs/01-setup.md)
-* [02-funneling-files](docs/02-funneling-files.md)
-* [03-merge-trees](docs/03-merge-trees.md)
-* [04-sass-preprocessing](docs/04-sass-preprocessing.md)
-* [05-es6-transpilation](docs/05-es6-transpilation.md)
-* [06-es6-modules](docs/06-es6-modules.md)
-* [07-node-modules](docs/07-node-modules.md)
-* [08-live-reload](docs/08-live-reload.md)
-* [09-linting](docs/10-linting.md)
-* [10-environment](docs/11-environment.md)
-* [11-minify](docs/12-minify.md)
-* [12-fingerprints](docs/13-fingerprints.md)

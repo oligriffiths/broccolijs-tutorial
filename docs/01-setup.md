@@ -113,4 +113,4 @@ Great, your first Broccoli build is complete, pat yourself on the back 👏.
 
 Completed Branch: [examples/01-setup](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/01-setup)
 
-Next: [02-funnelling-files](/docs/02-funnelling-files.md)
+Next: [02-funnelling-files](/docs/02-funneling-files.md)
