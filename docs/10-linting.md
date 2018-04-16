@@ -1,4 +1,4 @@
-## 09-Linting
+## 10-Linting
 
 Our dev environment is nearly complete, the last piece of the puzzle is linting. If you're not familiar with it, linting
 is the process of analyzing your files for syntax and code style errors, so they can be caught at build time, rather
@@ -172,6 +172,6 @@ We're now defining the colors as variables, and not using the short name for the
 
 Now run `yarn build` and your project should build with no errors.
 
-Completed Branch: [examples/09-linting](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/09-linting)
+Completed Branch: [examples/10-linting](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/10-linting)
 
-Next: [10-environment](/docs/10-environment.md)
+Next: [11-environment](/docs/11-environment.md)

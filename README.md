@@ -39,10 +39,10 @@ Steps:
 * [06-es6-modules](docs/06-es6-modules.md)
 * [07-node-modules](docs/07-node-modules.md)
 * [08-live-reload](docs/08-live-reload.md)
-* [09-linting](docs/09-linting.md)
-* [10-environment](docs/10-environment.md)
-* [11-minify](docs/11-minify.md)
-* [12-fingerprints](docs/12-fingerprints.md)
+* [09-linting](docs/10-linting.md)
+* [10-environment](docs/11-environment.md)
+* [11-minify](docs/12-minify.md)
+* [12-fingerprints](docs/13-fingerprints.md)
 
 ## Follow along
 
@@ -193,7 +193,7 @@ Steps:
 * [06-es6-modules](docs/06-es6-modules.md)
 * [07-node-modules](docs/07-node-modules.md)
 * [08-live-reload](docs/08-live-reload.md)
-* [09-linting](docs/09-linting.md)
-* [10-environment](docs/10-environment.md)
-* [11-minify](docs/11-minify.md)
-* [12-fingerprints](docs/12-fingerprints.md)
+* [09-linting](docs/10-linting.md)
+* [10-environment](docs/11-environment.md)
+* [11-minify](docs/12-minify.md)
+* [12-fingerprints](docs/13-fingerprints.md)

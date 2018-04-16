@@ -62,4 +62,4 @@ to just logging the file names.
 
 Completed Branch: [examples/09-debug](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/09-debug)
 
-Next: [10-environment](/docs/10-environment.md)
+Next: [10-linting](/docs/10-linting.md)

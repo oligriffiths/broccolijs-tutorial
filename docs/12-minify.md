@@ -1,4 +1,4 @@
-## 11-Minify
+## 12-Minify
 
 Minifying or Uglifying as it's also sometimes called, is the process of turning normal Javascript or CSS,
 into a compressed version, with much shorter variable and function names (for JS), and unnecessary whitespace removed
@@ -127,6 +127,6 @@ So what we're doing here is 2 things.
 
 That's it, now try building your prod application: `yarn build-prod`
 
-Completed Branch: [examples/11-minify](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/11-minify)
+Completed Branch: [examples/12-minify](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/12-minify)
 
-Next: [12-fingerprints](/docs/12-fingerprints.md)
+Next: [13-fingerprints](/docs/13-fingerprints.md)

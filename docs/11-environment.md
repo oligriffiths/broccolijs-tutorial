@@ -1,4 +1,4 @@
-## 10-Environment
+## 11-Environment
 
 Environment configuration allows us to include or not include certain things in the build given certain
 configuration options. For example, we probably want to not include live reload for production builds,
@@ -8,6 +8,9 @@ So lets go ahead and configure things to support this.
 ```sh
 uarn add --dev broccoli-env
 ```
+
+Note, the `broccoli-stew` package also comes with an `env` utility, with a slightly different API, but it doesn't expose
+the environment name, and I want to be able to print it to the console, so I'm using the `broccoli-env` package instead.
 
 ```js
 const Funnel = require("broccoli-funnel");
@@ -121,6 +124,6 @@ In order to pass in a different environment, simply add `BROCCOLI_ENV=production
 
 Now, running `yarn build-prod` will build in "production" mode.
 
-Completed Branch: [examples/10-environment](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/10-environment)
+Completed Branch: [examples/11-environment](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/11-environment)
 
-Next: [11-minify](/docs/11-minify.md)
+Next: [12-minify](/docs/12-minify.md)

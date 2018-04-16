@@ -1,4 +1,4 @@
-## 12-Fingerprinting
+## 13-Fingerprinting
 
 When deploying updates to your new shiny app, you're going to want the browser to fetch the latest version if there has
 been an update, rather than using the cached version the browser may store. The simplest way we can do this is by
@@ -126,5 +126,5 @@ auto-hash `js`, `css`, `png`, `jpg`, `gif` and `map` files, and will update `htm
 references to the original un-hashed file, with the new hashed file. There are additional options to specify a prefix
 so that files can be hosted on a CDN if you wish, see the plugin github page.
 
-Completed Branch: [examples/12-fingerprints](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/12-fingerprints)
+Completed Branch: [examples/13-fingerprints](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/13-fingerprints)
 
