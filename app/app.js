@@ -1,7 +1,6 @@
 "use strict";
 
 import foo from './foo';
-import { fooNamed } from './foo';
 import magic from 'magic-string';
 import { Bundle } from 'magic-string';
 import diff from 'arr-diff';

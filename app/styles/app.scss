@@ -1,5 +1,7 @@
-$body-color: palegreen;
+$body-color: #98fb98;
+$border-color: #008000;
+
 html {
   background: $body-color;
-  border: 5px solid green;
+  border: 5px solid $border-color;
 }

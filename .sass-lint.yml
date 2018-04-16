@@ -1,0 +1,3 @@
+rules:
+  extends-before-mixins: 2 # throws error
+  extends-before-declarations: 2 # throws error
