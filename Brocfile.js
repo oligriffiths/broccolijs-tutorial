@@ -4,6 +4,7 @@ const CompileSass = require("broccoli-sass-source-maps");
 const Rollup = require("broccoli-rollup");
 const LiveReload = require('broccoli-livereload');
 const log = require('broccoli-stew').log;
+const debug = require('broccoli-stew').debug;
 const babel = require("rollup-plugin-babel");
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
@@ -66,6 +67,8 @@ let tree = new Merge([html, js, css, public], {annotation: "Final output"});
 tree = log(tree, {
   output: 'tree',
 });
+
+tree = debug(tree, 'my-tree');
 
 // Include live reaload server
 tree = new LiveReload(tree, {
