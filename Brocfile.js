@@ -68,6 +68,7 @@ tree = log(tree, {
   output: 'tree',
 });
 
+// Write tree to disk
 tree = debug(tree, 'my-tree');
 
 // Include live reaload server
