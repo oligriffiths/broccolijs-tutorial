@@ -113,6 +113,6 @@ So what we're doing here is 2 things.
 
 That's it, now try building your prod application: `npm run build-prod`
 
-Completed Branch: [examples/10-minify](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/10-minify)
+Completed Branch: [examples/11-minify](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/11-minify)
 
-Next: [11-fingerprints](/docs/11-fingerprints.md)
+Next: [12-fingerprints](/docs/12-fingerprints.md)

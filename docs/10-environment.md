@@ -111,6 +111,6 @@ In order to pass in a different environment, simply add `BROCCOLI_ENV=production
 
 Now, running `npm run build-prod` will build in "production" mode.
 
-Completed Branch: [examples/09-environment](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/09-environment)
+Completed Branch: [examples/10-environment](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/10-environment)
 
-Next: [10-minify](/docs/10-minify.md)
+Next: [11-minify](/docs/11-minify.md)
