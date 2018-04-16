@@ -6,7 +6,7 @@ for this we need to have different environments. When building, we can provide a
 So lets go ahead and configure things to support this.
 
 ```sh
-uarn add --dev broccoli-env
+yarn add --dev broccoli-env@^0.0.1
 ```
 
 Note, the `broccoli-stew` package also comes with an `env` utility, with a slightly different API, but it doesn't expose
