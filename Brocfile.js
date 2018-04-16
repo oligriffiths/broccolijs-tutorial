@@ -6,7 +6,6 @@ const CompileSass = require("broccoli-sass-source-maps");
 const Rollup = require("broccoli-rollup");
 const LiveReload = require('broccoli-livereload');
 const log = require('broccoli-stew').log;
-const debug = require('broccoli-stew').debug;
 const babel = require("rollup-plugin-babel");
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
