@@ -7,7 +7,8 @@ const Rollup = require("broccoli-rollup");
 const LiveReload = require('broccoli-livereload');
 const CleanCss = require('broccoli-clean-css');
 const log = require('broccoli-stew').log;
-const babel = require("rollup-plugin-babel");
+const AssetRev = require('broccoli-asset-rev');
+const babel = require('rollup-plugin-babel');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const uglify = require('rollup-plugin-uglify');
@@ -92,16 +93,18 @@ const public = new Funnel("public", {
 // Remove the existing module.exports and replace with:
 let tree = new Merge([html, js, css, public], {annotation: "Final output"});
 
-// Log the output tree
-tree = log(tree, {
-  output: 'tree',
-});
-
-// Include live reaload server
-if (!isProduction) {
+// Include asset hashes
+if (isProduction) {
+  tree = new AssetRev(tree);
+} else {
   tree = new LiveReload(tree, {
     target: 'index.html',
   });
 }
+
+// Log the output tree
+tree = log(tree, {
+  output: 'tree',
+});
 
 module.exports = tree;
