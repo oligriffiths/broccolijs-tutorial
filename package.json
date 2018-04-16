@@ -29,6 +29,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "broccoli": "^1.1.4",
+    "broccoli-clean-css": "^2.0.1",
     "broccoli-env": "^0.0.1",
     "broccoli-funnel": "^2.0.1",
     "broccoli-lint-eslint": "^3.3.2",
@@ -38,8 +39,10 @@
     "broccoli-sass-lint": "^1.1.2",
     "broccoli-sass-source-maps": "^2.2.0",
     "broccoli-stew": "^1.5.0",
+    "broccoli-uglify-sourcemap": "^2.0.2",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.4.1",
-    "rollup-plugin-node-resolve": "^3.2.0"
+    "rollup-plugin-node-resolve": "^3.2.0",
+    "rollup-plugin-uglify": "^3.0.0"
   }
 }

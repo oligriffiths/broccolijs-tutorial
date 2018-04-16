@@ -5,10 +5,12 @@ const SassLint = require("broccoli-sass-lint");
 const CompileSass = require("broccoli-sass-source-maps");
 const Rollup = require("broccoli-rollup");
 const LiveReload = require('broccoli-livereload');
+const CleanCss = require('broccoli-clean-css');
 const log = require('broccoli-stew').log;
 const babel = require("rollup-plugin-babel");
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const uglify = require('rollup-plugin-uglify');
 const env = require('broccoli-env').getEnv() || 'development';
 const isProduction = env === 'production';
 
@@ -29,28 +31,34 @@ let js = new EsLint(appRoot, {
 });
 
 // Compile JS through rollup
+const rollupPlugins = [
+  nodeResolve({
+    jsnext: true,
+    browser: true,
+  }),
+  commonjs({
+    include: 'node_modules/**',
+  }),
+  babel({
+    exclude: 'node_modules/**',
+  }),
+];
+
+// Uglify the output for production
+if (isProduction) {
+  rollupPlugins.push(uglify());
+}
+
 js = new Rollup(js, {
-  inputFiles: ["**/*.js"],
-  annotation: "JS Transformation",
+  inputFiles: ['**/*.js'],
   rollup: {
-    input: "app.js",
+    input: 'app.js',
     output: {
-      file: "assets/app.js",
-      format: "iife",
+      file: 'assets/app.js',
+      format: 'es',
       sourcemap: !isProduction,
     },
-    plugins: [
-      nodeResolve({
-        jsnext: true,
-        browser: true,
-      }),
-      commonjs({
-        include: 'node_modules/**',
-      }),
-      babel({
-        exclude: "node_modules/**",
-      }),
-    ],
+    plugins: rollupPlugins,
   }
 });
 
@@ -70,6 +78,11 @@ css = new CompileSass(
     annotation: "Sass files"
   }
 );
+
+// Compress our CSS
+if (isProduction) {
+  css = new CleanCss(css);
+}
 
 // Copy public files into destination
 const public = new Funnel("public", {
