@@ -1,10 +1,9 @@
-'use strict';
+"use strict";
 
 import foo from './foo';
-import bar from './foo';
-import BlankObject from 'blank-object';
+import { fooNamed } from './foo';
+import magic from 'magic-string';
+import { Bundle } from 'magic-string';
 import diff from 'arr-diff';
 
-const blank = new BlankObject();
-
-console.log(foo, blank, diff([1,2,3], [3,4,5]));
+console.log(foo, magic, Bundle, diff([1,2,3], [3,4,5]));
