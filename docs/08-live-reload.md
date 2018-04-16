@@ -91,4 +91,4 @@ but that's a slightly different ballgame, and is very architecture dependent.
 
 Completed Branch: [examples/08-live-reload](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/08-live-reload)
 
-Next: [09-linting](/docs/09-linting.md)
+Next: [09-debug](/docs/09-debug.md)
