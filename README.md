@@ -94,7 +94,7 @@ of another that will be consumed by the next plugin.
 Nodes are always one of two types, `source` nodes and `transform` nodes.
 
 `source` nodes represent a single input directory, and are implicitly created when you use a `string` as an input to a
-plugin. Typically source nodes are "watched" directories, and chages to any files within them will trigger a rebuild of
+plugin. Typically source nodes are "watched" directories, and changes to any files within them will trigger a rebuild of
 their node "tree". You can also create unwatched directories for things like vendor files that don't change often.
 
 `transform` nodes represent one or more input nodes, and are typically created by the output of plugins. Transform nodes
