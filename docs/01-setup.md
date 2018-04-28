@@ -39,8 +39,8 @@ In your `package.json` add the following to the `scripts` node (add this if it's
 You can now use `yarn build` and `yarn serve` for convenience.
 
 Note: the `debug-build` and `debug-serve` are for use with [VS Code](https://code.visualstudio.com/) to allow for
-interactive debugging. If you wish to use this, you'll need the files in
-[this directory](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/00-init/.vscode).
+interactive debugging. If you wish to use this, you'll need to add the files in
+[this directory](https://github.com/oligriffiths/broccolijs-tutorial/tree/examples/00-init/.vscode) to `.vscode/` at your project's root.
 You can add breakpoints by clicking in the column to the left of the line numbers (on the left) and then hit the
 `debug` icon on the very left side of the screen (looks like a bug) or CMD + SHIFT + D, select `debug-build` from the
 dropdown menu at the top, and click "play".
@@ -52,7 +52,7 @@ already exists.
 
 A `Brocfile.js` must live in the root of your project, this is what will contain your build pipeline.
 
-So create a `Brocfile.js` in the root of your project, with the contents: 
+So create a `Brocfile.js` in the root of your project, with the contents:
 
 ```js
 // Brocfile.js
@@ -70,7 +70,7 @@ That's it, you're done.
 
 The initial setup of this tutorial merely copies files from the input `app` directory by exporting the string `app`.
 The `Brocfile.js` contains the Broccoli configuration for the build. The `module.exports` line must export a Broccoli
-tree. "But it's a string" you say, yes, Broccoli will automatically convert a string into a `source node`, and on build,
+tree. "But it's a string?" you say. Yes, Broccoli will automatically convert a string into a `source node`, and on build,
 validate that the directory exists. In this case, the Brocfile merely exports a single tree, containing the contents of
 the `app` directory, this will then be copied to the destination directory (`dist` in our case).
 
