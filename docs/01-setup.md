@@ -19,7 +19,7 @@ Create a new directory for this tutorial and install broccoli:
 ```sh
 mkdir broccoli-tutorial
 cd broccoli-tutorial
-yarn add --dev broccoli@1.1.4
+yarn add --dev broccoli@^1.1.4
 ```
 
 In your `package.json` add the following to the `scripts` node (add this if it's not present):
