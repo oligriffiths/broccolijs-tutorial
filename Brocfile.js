@@ -1,6 +1,6 @@
-const Funnel = require("broccoli-funnel");
+const funnel = require("broccoli-funnel");
 
-module.exports = new Funnel('app', {
+module.exports = funnel('app', {
   files: ["index.html"],
   destDir: "/",
   annotation: 'Index file',
