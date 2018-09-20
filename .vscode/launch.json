@@ -10,7 +10,7 @@
       "request": "launch",
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "debug-build"],
+      "runtimeArgs": ["run", "build"],
       "port": 5858,
       "env": {
         "NODE_DEBUG_OPTION": "--nolazy --inspect-brk=5858"
@@ -22,7 +22,7 @@
       "request": "launch",
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "debug-serve"],
+      "runtimeArgs": ["run", "serve"],
       "port": 5858,
       "env": {
         "NODE_DEBUG_OPTION": "--nolazy --inspect-brk=5858"
