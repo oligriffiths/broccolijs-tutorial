@@ -14,7 +14,9 @@
     "type": "git",
     "url": "https://github.com/oligriffiths/broccolijs-tutorial.git"
   },
-  "keywords": ["broccoli"],
+  "keywords": [
+    "broccoli"
+  ],
   "author": "Oli Griffiths",
   "license": "MIT",
   "bugs": {
@@ -25,6 +27,7 @@
     "broccoli": "^1.1.4",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
-    "broccoli-sass-source-maps": "^2.2.0"
+    "broccoli-sass-source-maps": "^4.0.0",
+    "sass": "^1.14.0"
   }
 }

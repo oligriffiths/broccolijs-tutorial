@@ -1,6 +1,6 @@
 const Funnel = require("broccoli-funnel");
 const Merge = require("broccoli-merge-trees");
-const CompileSass = require("broccoli-sass-source-maps");
+const compileSass = require('broccoli-sass-source-maps')(require('sass'));
 
 const appRoot = "app";
 
@@ -18,7 +18,7 @@ const js = new Funnel(appRoot, {
 });
 
 // Compile sass files
-const css = new CompileSass(
+const css = compileSass(
   [appRoot],
   "styles/app.scss",
   "assets/app.css",
