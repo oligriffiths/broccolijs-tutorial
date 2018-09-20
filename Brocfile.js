@@ -1,31 +1,31 @@
-const Funnel = require('broccoli-funnel');
-const Merge = require('broccoli-merge-trees');
-const CompileSass = require('broccoli-sass-source-maps');
-const Babel = require('broccoli-babel-transpiler');
+const funnel = require('broccoli-funnel');
+const merge = require('broccoli-merge-trees');
+const compileSass = require('broccoli-sass-source-maps')(require('sass'));
+const babel = require('broccoli-babel-transpiler');
 
 const appRoot = 'app';
 
 // Copy HTML file from app root to destination
-const html = new Funnel(appRoot, {
+const html = funnel(appRoot, {
   files: ["index.html"],
   annotation: "Index file",
 });
 
 // Copy JS file into assets
-let js = new Funnel(appRoot, {
+let js = funnel(appRoot, {
   files: ["app.js"],
   destDir: "/assets",
   annotation: "JS files",
 });
 
 // Transpile JS files to ES5
-js = new Babel(js, {
+js = babel(js, {
   browserPolyfill: true,
   sourceMap: 'inline',
 });
 
 // Copy CSS file into assets
-const css = new CompileSass(
+const css = compileSass(
   [appRoot],
   'styles/app.scss',
   'assets/app.css',
@@ -37,8 +37,8 @@ const css = new CompileSass(
 );
 
 // Copy public files into destination
-const public = new Funnel('public', {
+const public = funnel('public', {
   annotation: "Public files",
 });
 
-module.exports = new Merge([html, js, css, public], {annotation: "Final output"});
+module.exports = merge([html, js, css, public], {annotation: "Final output"});

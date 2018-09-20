@@ -4,17 +4,16 @@
   "description": "Broccoli.js tutorial application",
   "main": " ",
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "yarn clean && broccoli build dist",
-    "serve": "broccoli serve",
-    "debug-build": "yarn clean && node $NODE_DEBUG_OPTION $(which broccoli) build dist",
-    "debug-serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
+    "build": "node $NODE_DEBUG_OPTION $(which broccoli) build --overwrite",
+    "serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/oligriffiths/broccolijs-tutorial.git"
   },
-  "keywords": ["broccoli"],
+  "keywords": [
+    "broccoli"
+  ],
   "author": "Oli Griffiths",
   "license": "MIT",
   "bugs": {
@@ -24,10 +23,12 @@
   "devDependencies": {
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
-    "broccoli": "^1.1.4",
+    "broccoli": "^2.0.0-beta.4",
     "broccoli-babel-transpiler": "^6.1.4",
+    "broccoli-cli": "^1.0.0",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
-    "broccoli-sass-source-maps": "^2.2.0"
+    "broccoli-sass-source-maps": "^4.0.0",
+    "sass": "^1.14.0"
   }
 }
