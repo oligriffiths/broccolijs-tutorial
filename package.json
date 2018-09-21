@@ -22,8 +22,8 @@
   },
   "homepage": "https://github.com/oligriffiths/broccolijs-tutorial#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.0",
     "broccoli": "^2.0.0-beta.4",
-    "broccoli-babel-transpiler": "^7.0.0",
     "broccoli-clean-css": "^2.0.1",
     "broccoli-cli": "^1.0.0",
     "broccoli-env": "^0.0.1",
@@ -35,6 +35,7 @@
     "broccoli-sass-lint": "^1.1.2",
     "broccoli-sass-source-maps": "^4.0.0",
     "broccoli-stew": "^2.0.0",
+    "rollup": "^0.66.2",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-commonjs": "^9.1.8",
     "rollup-plugin-node-resolve": "^3.4.0",
