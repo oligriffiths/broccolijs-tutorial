@@ -120,7 +120,7 @@ const templatesTree = funnel(glimmerTree, {
   files: ['templates.gbx'],
 });
 
-// Remove the existing module.exports and replace with:
+// Merge all the trees together
 let tree = merge([html, js, css, public, templatesTree], {annotation: "Final output"});
 
 // Include asset hashes
