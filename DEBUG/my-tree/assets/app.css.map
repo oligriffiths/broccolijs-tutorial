@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../../../../../../Users/oli/Projects/broccoli-tutorial/app/styles/app.scss"],"names":[],"mappings":"AACA;EACE,YAFW;EAGX","file":"app.css","sourcesContent":["$body-color: palegreen;\nhtml {\n  background: $body-color;\n  border: 5px solid green;\n}\n"]}
