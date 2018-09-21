@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node $NODE_DEBUG_OPTION $(which broccoli) build --overwrite",
     "serve": "node $NODE_DEBUG_OPTION $(which broccoli) serve",
-    "build-prod": "BROCCOLI_ENV=production node $NODE_DEBUG_OPTION $(which broccoli) build --overwrite",
+    "build-prod": "BROCCOLI_ENV=production node $NODE_DEBUG_OPTION $(which broccoli) build --overwrite"
   },
   "repository": {
     "type": "git",

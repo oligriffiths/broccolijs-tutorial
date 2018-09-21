@@ -79,13 +79,13 @@ const public = funnel('public', {
 // Remove the existing module.exports and replace with:
 let tree = merge([html, js, css, public], {annotation: "Final output"});
 
-// Log the output tree
-tree = log(tree, {
-  output: 'tree',
-});
-
 // Include live reaload server
 if (!isProduction) {
+  // Log the output tree
+  tree = log(tree, {
+    output: 'tree',
+  });
+
   tree = new LiveReload(tree, {
     target: 'index.html',
   });
