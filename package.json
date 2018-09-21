@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/oligriffiths/broccolijs-tutorial#readme",
   "devDependencies": {
+    "@glimmer/compiler": "^0.36.2",
+    "@glimmer/resolution-map-builder": "^0.5.1",
+    "@glimmer/resolver-configuration-builder": "^0.1.2",
     "broccoli": "^2.0.0-beta.4",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-babel-transpiler": "^7.0.0",
@@ -42,5 +45,7 @@
     "rollup-plugin-uglify": "^6.0.0",
     "sass": "^1.14.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@glimmer/app-compiler": "^0.9.1"
+  }
 }
