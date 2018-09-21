@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/oligriffiths/broccolijs-tutorial#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.0",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "broccoli": "^2.0.0-beta.4",
