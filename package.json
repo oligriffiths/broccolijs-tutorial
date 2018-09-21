@@ -21,13 +21,14 @@
   },
   "homepage": "https://github.com/oligriffiths/broccolijs-tutorial#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.0",
     "broccoli": "^2.0.0-beta.4",
-    "broccoli-babel-transpiler": "^7.0.0",
     "broccoli-cli": "^1.0.0",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^3.0.0",
     "broccoli-rollup": "^2.1.1",
     "broccoli-sass-source-maps": "^4.0.0",
+    "rollup": "^0.66.2",
     "rollup-plugin-babel": "^4.0.3",
     "sass": "^1.14.0"
   }
