@@ -9,9 +9,7 @@ const LiveReload = require('broccoli-livereload');
 const CleanCss = require('broccoli-clean-css');
 const log = require('broccoli-stew').log;
 const assetRev = require('broccoli-asset-rev');
-const GlimmerBundleCompiler = require('@glimmer/app-compiler').GlimmerBundleCompiler;
-const UnwatchedDir = require("broccoli-source").UnwatchedDir;
-const ResolverConfigurationBuilder = require('@glimmer/resolver-configuration-builder');
+const broccoliGlimmer = require('./lib/broccoli-glimmer');
 
 // Rollup plugins
 const babel = require('rollup-plugin-babel');
@@ -25,79 +23,29 @@ const package = require('./package.json');
 const isProduction = env === 'production';
 
 // Status
+console.log('Application: ' + package.name);
 console.log('Environment: ' + env);
 
 // Build config
 const appRoot = "src";
 const configRoot = 'config';
 
-// Copy HTML file from app root to destination
-const html = funnel(appRoot, {
-  srcDir: 'ui',
-  files: ["index.html"],
-  destDir: '/',
-  annotation: "Index file",
-});
+// Build the glimmer tree, this returns the compiled templates, resolver configuration and data-segment.js
+const glimmerTree = broccoliGlimmer(appRoot, configRoot, package.name);
 
-
-const configTree = funnel(configRoot, {
-  files: ['config.js'],
-});
-
-const hbsTree = funnel(appRoot, {
-  include: ['**/*.hbs'],
-  destDir: appRoot
-});
-
-// Lint js files
+// Lint the source JS files
 let jsTree = esLint(appRoot, {
   persist: true
 });
 
+// Lint js files
 jsTree = funnel(jsTree, {
   include: ['**/*.js'],
   destDir: appRoot
 });
 
-// Template compiler needs access to root package.json
-let pkgJsonTree = new UnwatchedDir('./');
-pkgJsonTree = funnel(pkgJsonTree, {
-  include: ['package.json']
-});
-
-// Get templates and package.json
-let templateTree = merge([hbsTree, pkgJsonTree]);
-
-// The bundle compiler generates the compiled templates.gbx binary template and data-segment for the runtime
-let compiledTree = new GlimmerBundleCompiler(templateTree, {
-  mode: 'module-unification',
-  outputFiles: {
-    heapFile: 'templates.gbx',
-    dataSegment: 'data-segment.js'
-  }
-});
-
-// Filter the templates
-const templatesTree = funnel(compiledTree, {
-  files: ['templates.gbx'],
-});
-
-// Filter the data segment
-const dataSegmentTree = funnel(compiledTree, {
-  files: ['data-segment.js'],
-});
-
-// I don't know what this does...
-const defaultModuleConfiguration = require('./defaultModuleConfig');
-
-// ResolverConfiguration used by glimmer DI, written to /config during build
-const resolverConfiguration = new ResolverConfigurationBuilder(configTree, {
-  configPath: 'test',
-  defaultModulePrefix: package.name,
-  defaultModuleConfiguration: defaultModuleConfiguration
-});
-
-let js = merge([jsTree, dataSegmentTree, resolverConfiguration], { overwrite: true });
+// Merge the output from glimmerTree into jsTree so config/resolver-configuration is included
+jsTree = merge([jsTree, glimmerTree]);
 
 // Compile JS through rollup
 const rollupPlugins = [
@@ -118,7 +66,8 @@ if (isProduction) {
   rollupPlugins.push(uglify());
 }
 
-js = new Rollup(js, {
+// Run through rollup
+js = new Rollup(jsTree, {
   inputFiles: ['**/*.js'],
   rollup: {
     input: 'src/index.js',
@@ -156,6 +105,19 @@ if (isProduction) {
 // Copy public files into destination
 const public = funnel('public', {
   annotation: "Public files",
+});
+
+// Copy HTML file from app root to destination
+const html = funnel(appRoot, {
+  srcDir: 'ui',
+  files: ["index.html"],
+  destDir: '/',
+  annotation: "Index file",
+});
+
+// Filter the templates
+const templatesTree = funnel(glimmerTree, {
+  files: ['templates.gbx'],
 });
 
 // Remove the existing module.exports and replace with:
