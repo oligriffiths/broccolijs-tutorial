@@ -1,7 +1,7 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/env",
       {
         "modules": false,
         "targets": {
@@ -11,6 +11,6 @@
     ]
   ],
   "plugins": [
-    "external-helpers"
+    "@babel/plugin-external-helpers"
   ]
 }
