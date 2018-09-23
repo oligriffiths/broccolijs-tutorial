@@ -1,7 +1,7 @@
 import Application, {DOMBuilder, BytecodeLoader, AsyncRenderer} from '@glimmer/application';
 import Resolver, {BasicModuleRegistry} from '@glimmer/resolver';
 import resolverConfiguration from '../config/resolver-configuration';
-import data from '../data-segment';
+import data from '../config/data-segment';
 
 export default class App extends Application {
   constructor() {

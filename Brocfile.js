@@ -31,7 +31,7 @@ const appRoot = "src";
 const configRoot = 'config';
 
 // Build the glimmer tree, this returns the compiled templates, resolver configuration and data-segment.js
-const glimmerTree = broccoliGlimmer(appRoot, configRoot, package.name);
+const glimmerTree = broccoliGlimmer(appRoot, configRoot);
 
 // Lint the source JS files
 let jsTree = esLint(appRoot, {
