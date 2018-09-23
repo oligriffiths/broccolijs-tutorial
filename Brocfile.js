@@ -10,6 +10,7 @@ const CleanCss = require('broccoli-clean-css');
 const log = require('broccoli-stew').log;
 const assetRev = require('broccoli-asset-rev');
 const broccoliGlimmer = require('./lib/broccoli-glimmer');
+const debug = require('broccoli-stew').debug;
 
 // Rollup plugins
 const babel = require('rollup-plugin-babel');
@@ -30,7 +31,7 @@ console.log('Environment: ' + env);
 const appRoot = "src";
 
 // Build the glimmer tree, this returns the compiled templates, resolver configuration and data-segment.js
-const glimmerTree = broccoliGlimmer(appRoot);
+const glimmerTree = debug(broccoliGlimmer(appRoot));
 
 // Lint the source JS files
 let jsTree = esLint(appRoot, {
