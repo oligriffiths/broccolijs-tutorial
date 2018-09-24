@@ -30,22 +30,13 @@ console.log('Environment: ' + env);
 // Build config
 const appRoot = "src";
 
-// Build the glimmer tree, this returns the compiled templates, resolver configuration and data-segment.js
-const glimmerTree = debug(broccoliGlimmer(appRoot));
-
 // Lint the source JS files
 let jsTree = esLint(appRoot, {
   persist: true
 });
 
-// Lint js files
-jsTree = funnel(jsTree, {
-  include: ['**/*.js'],
-  destDir: appRoot
-});
-
-// Merge the output from glimmerTree into jsTree so config/resolver-configuration is included
-jsTree = merge([jsTree, glimmerTree]);
+// Build the glimmer tree, this returns the compiled templates, resolver configuration and data-segment.js
+const glimmerTree = broccoliGlimmer(jsTree);
 
 // Compile JS through rollup
 const rollupPlugins = [
@@ -67,7 +58,7 @@ if (isProduction) {
 }
 
 // Run through rollup
-js = new Rollup(jsTree, {
+jsTree = new Rollup(glimmerTree, {
   inputFiles: ['**/*.js'],
   rollup: {
     input: 'src/index.js',
@@ -81,14 +72,14 @@ js = new Rollup(jsTree, {
 });
 
 // Lint css files
-let css = sassLint(appRoot + '/styles', {
+let cssTree = sassLint(appRoot + '/styles', {
   disableTestGenerator: true,
 });
 
 // Copy CSS file into assets
-css = compileSass(
-  [appRoot],
-  'styles/app.scss',
+cssTree = compileSass(
+  [cssTree],
+  'app.scss',
   'assets/app.css',
   {
     sourceMap: !isProduction,
@@ -99,16 +90,16 @@ css = compileSass(
 
 // Compress our CSS
 if (isProduction) {
-  css = new CleanCss(css);
+  cssTree = new CleanCss(cssTree);
 }
 
 // Copy public files into destination
-const public = funnel('public', {
+const publicTree = funnel('public', {
   annotation: "Public files",
 });
 
 // Copy HTML file from app root to destination
-const html = funnel(appRoot, {
+const htmlTree = funnel(appRoot, {
   srcDir: 'ui',
   files: ["index.html"],
   destDir: '/',
@@ -121,7 +112,7 @@ const templatesTree = funnel(glimmerTree, {
 });
 
 // Merge all the trees together
-let tree = merge([html, js, css, public, templatesTree], {annotation: "Final output"});
+let tree = merge([htmlTree, jsTree, cssTree, publicTree, templatesTree], {annotation: "Final output"});
 
 // Include asset hashes
 if (isProduction) {
