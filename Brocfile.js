@@ -70,8 +70,8 @@ let css = sassLint(appRoot + '/styles', {
 
 // Copy CSS file into assets
 css = compileSass(
-  [appRoot],
-  'styles/app.scss',
+  [css],
+  'app.scss',
   'assets/app.css',
   {
     sourceMap: !isProduction,
