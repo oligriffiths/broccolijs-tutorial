@@ -10,7 +10,7 @@ const log = require('broccoli-stew').log;
 const babel = require("rollup-plugin-babel");
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
-const uglify = require('rollup-plugin-uglify').uglify;
+const uglify = require('rollup-plugin-uglify');
 const env = require('broccoli-env').getEnv() || 'development';
 const isProduction = env === 'production';
 
